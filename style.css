@@ -2695,7 +2695,7 @@ a {
     line-height: 1.25;
   }
 
-  /* Prestação de Contas (Documents) Fully Visible via Scale/Zoom */
+  /* Prestação de contas ocupa a largura real do celular sem sobreposição */
   .doc-section-wrapper {
     max-width: 100%;
     overflow: hidden;
@@ -2717,23 +2717,51 @@ a {
 
   /* We center the scaled document */
   .doc-canvas-area {
-    padding: 0.75rem 0;
-    overflow-x: hidden;
-    display: flex;
-    justify-content: center;
+    padding: 0.75rem;
+    overflow-x: auto;
   }
 
-  /* Force the documents to be visible on a small screen using zoom */
   .authentic-boleto-paper,
   .authentic-danfe-paper,
   .authentic-clinic-paper {
-    min-width: unset;
-    width: 680px;
+    width: 100%;
+    min-width: 0;
     max-width: none;
-    zoom: 0.52;
-    /* Fallback for Firefox */
-    -moz-transform: scale(0.52);
-    -moz-transform-origin: top center;
+    padding: 12px 10px;
+    box-sizing: border-box;
+    overflow-wrap: anywhere;
+  }
+
+  .authentic-boleto-paper .rubber-stamp,
+  .authentic-danfe-paper .rubber-stamp-green {
+    display: none;
+  }
+
+  .boleto-table {
+    table-layout: fixed;
+  }
+
+  .boleto-table td {
+    padding: 3px 4px;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .boleto-field-title {
+    font-size: 0.5rem;
+  }
+
+  .boleto-field-val {
+    font-size: 0.62rem;
+  }
+
+  .boleto-field-val.bold-price {
+    font-size: 0.72rem;
+  }
+
+  .boleto-instructions-box {
+    font-size: 0.6rem;
+    line-height: 1.25;
   }
 
   /* Document Actions Bar */
