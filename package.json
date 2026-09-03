@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "jimp": "^1.6.1",
+    "qrcode-reader": "^1.0.4",
+    "terminal-image": "^5.0.1",
+    "tesseract.js": "^7.0.0"
+  }
+}

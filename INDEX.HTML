@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Um apelo desesperado! Ajude a salvar 412 cãezinhos</title>
+<meta name="description" content="Ajude nosso abrigo de animais a não fechar as portas. Mais de 400 cães resgatados dependem da sua doação pelo Pix.">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400..800&family=DM+Serif+Display:ital@0;1&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- Stylesheet -->
+<link rel="stylesheet" href="style.css">
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+
+<!-- SITE HEADER -->
+<header class="site-header">
+<div class="header-inner">
+<!-- Mobile hamburger button -->
+<button class="menu-toggle" onclick="openDrawer()" aria-label="Abrir menu de navegação">
+<span></span>
+<span></span>
+<span></span>
+</button>
+
+<!-- Brand Logo -->
+<a href="#" class="header-brand">
+<div class="brand-icon">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+</div>
+<span>ABRIGO ESPERANÇA</span>
+</a>
+
+<!-- Desktop Navigation Bar (Single clean line) -->
+<nav class="desktop-nav" aria-label="Menu principal desktop">
+<a href="#historia">A História</a>
+<a href="#caes">Nossos Cães</a>
+<a href="#transparencia">Custos</a>
+<a href="#atualizacoes">Atualizações</a>
+<a href="#depoimentos">Depoimentos</a>
+<a href="#prestacao-contas">Boletos & Notas</a>
+<a href="#faq">Dúvidas</a>
+</nav>
+
+<!-- Header Actions -->
+<div class="header-actions">
+<button class="btn-header-donate" onclick="openDonationModal()">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+DOAR PELO PIX
+</button>
+
+<button class="header-share-btn" onclick="shareCampaign()" aria-label="Compartilhar campanha">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="18" cy="5" r="3"></circle>
+<circle cx="6" cy="12" r="3"></circle>
+<circle cx="18" cy="19" r="3"></circle>
+<line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+<line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+</svg>
+</button>
+</div>
+</div>
+</header>
+
+<!-- DRAWER NAVIGATION MENU (MOBILE) -->
+<div class="drawer-backdrop" id="drawerMenu" onclick="closeDrawer()">
+<div class="drawer-menu" onclick="event.stopPropagation()">
+<div class="drawer-header">
+<div class="header-brand">
+<div class="brand-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+</div>
+<span>NAVEGAÇÃO</span>
+</div>
+<button class="drawer-close" onclick="closeDrawer()">✕</button>
+</div>
+<ul class="drawer-links">
+<li><a href="#historia">🐾 A História do Abrigo</a></li>
+<li><a href="#pix-rapido">💳 Doar pelo Pix</a></li>
+<li><a href="#caes">🐶 Cães Resgatados</a></li>
+<li><a href="#comparativo">⚖️ Com vs Sem Sua Ajuda</a></li>
+<li><a href="#impacto">❤️ Onde Vai Seu Apoio</a></li>
+<li><a href="#transparencia">🧾 Prestação de Custos</a></li>
+<li><a href="#atualizacoes">📰 Últimas Notícias</a></li>
+<li><a href="#depoimentos">💬 Depoimentos</a></li>
+<li><a href="#prestacao-contas">📄 Boletos e Notas Reais</a></li>
+<li><a href="#faq">❓ Dúvidas Frequentes</a></li>
+</ul>
+<div class="drawer-footer">
+<button class="btn-cta-green" style="width: 100%;" onclick="closeDrawer(); openDonationModal();">
+QUERO DOAR AGORA
+</button>
+</div>
+</div>
+</div>
+
+<!-- MAIN PAGE WRAPPER -->
+<main class="page-container">
+
+<!-- HERO SECTION (CENTERED) -->
+<section class="hero-section">
+<div class="hero-top-info">
+<div class="hero-badge-urgent">
+🚨 Um apelo desesperado!
+</div>
+
+<h1 class="hero-title">
+412 cãezinhos e um plano<br>para <span class="text-red">salvar todos eles</span>
+</h1>
+
+<p class="hero-subtitle">
+Ajude nosso abrigo a continuar alimentando e tratando esses animais resgatados da enchente e do abandono.
+</p>
+</div>
+
+<!-- Centered Main Hero Card -->
+<div class="hero-card-centered">
+<!-- Media / Video Container -->
+<div class="hero-media-wrapper" onclick="playShelterVideo()">
+<img class="hero-media-img" src="imagens/hero_video_thumb.png" alt="Resgate e cuidado de cães no abrigo" onerror="this.src='https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800&auto=format&fit=crop&q=80'">
+<div class="hero-play-overlay">
+<span class="play-badge">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+ASSISTA AO VÍDEO
+</span>
+</div>
+</div>
+
+<!-- Progress & Action CTA Area -->
+<div class="hero-card-content">
+<div class="progress-header">
+<div>
+<span style="display: block; font-size: 0.76rem; text-transform: uppercase; font-weight: 700; color: #64748b;">Total Arrecadado</span>
+<span class="amount-raised">R$ 48.910</span>
+</div>
+<div style="text-align: right;">
+<span style="display: block; font-size: 0.76rem; text-transform: uppercase; font-weight: 700; color: #64748b;">Meta Necessária</span>
+<span class="amount-goal">R$ 150.000</span>
+</div>
+</div>
+
+<div class="progress-bar-wrap">
+<div class="progress-bar-fill" style="width: 32.6%;"></div>
+</div>
+
+<div class="progress-stats-row">
+<span><strong>32.6%</strong> da meta alcançada</span>
+<span><strong>1.428</strong> apoiadores solidários</span>
+</div>
+
+<div class="hero-buttons-grid">
+<button class="btn-cta-green" onclick="openDonationModal()">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+CONTRIBUIR PELO PIX
+</button>
+<button class="btn-cta-red" onclick="copyPixKey()">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+COPIAR CHAVE PIX
+</button>
+</div>
+
+<div class="trust-micro">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="color: #16a34a;"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+<span>Doação 100% segura ⬢ Prestação de contas pública diária</span>
+</div>
+</div>
+</div>
+
+<!-- ANCHOR PILLS BAR (CENTERED) -->
+<nav class="nav-pills-bar" aria-label="Navegação rápida de seções">
+<a href="#historia" class="pill-anchor">A História</a>
+<a href="#pix-rapido" class="pill-anchor">Doar Agora</a>
+<a href="#caes" class="pill-anchor">Nossos Cães</a>
+<a href="#comparativo" class="pill-anchor">Comparativo</a>
+<a href="#impacto" class="pill-anchor">Onde Vai o Apoio</a>
+<a href="#transparencia" class="pill-anchor">Custos</a>
+<a href="#atualizacoes" class="pill-anchor">Atualizações</a>
+<a href="#depoimentos" class="pill-anchor">Depoimentos</a>
+<a href="#prestacao-contas" class="pill-anchor">Boletos & Notas</a>
+<a href="#faq" class="pill-anchor">Dúvidas</a>
+</nav>
+</section>
+
+<!-- SECTION: A HISTÓRIA (ORGANIZADA & ALINHADA AO CENTRO) -->
+<section class="content-section" id="historia">
+<div class="story-wrapper-centered">
+<span class="section-tag">A HISTÓRIA</span>
+<h2 class="section-title">Conheça a história e ajude a salvar 412 vidas<br>que dependem do nosso abrigo</h2>
+<p class="section-subtitle">Um compromisso diário com a vida, a recuperação e a dignidade animal</p>
+
+<div class="story-carousel">
+<div class="story-carousel-track">
+<!-- 5 Imagens + 1 Clone (para loop contínuo) -->
+<img src="imagens/carousel_1.webp" alt="Resgate 1">
+<img src="imagens/carousel_2.webp" alt="Resgate 2">
+<img src="imagens/carousel_3.webp" alt="Resgate 3">
+<img src="imagens/carousel_4.webp" alt="Resgate 4">
+<img src="imagens/carousel_5.webp" alt="Resgate 5">
+<img src="imagens/carousel_1.webp" alt="Resgate 1">
+</div>
+</div>
+
+<div class="story-alert-banner">
+ Estamos a poucos dias de ficar sem ração e sem medicamentos para mais de 400 animais!
+</div>
+
+<div class="story-body">
+<p>
+O <strong>Abrigo Esperança</strong> nasceu da coragem de não fechar os olhos para o sofrimento e o abandono nas ruas. O que começou com o resgate pontual de alguns animais atropelados na rodovia transformou-se em um refúgio acolhedor para <strong>mais de 400 cães e gatos</strong>, resgatados de situações extremas de maus-tratos, fome severa e das fortes enchentes que devastaram nossa região.
+</p>
+
+<div class="story-quote-box">
+"Cada um desses 412 cãezinhos tem um nome, uma história de superação e uma dependência total de nós. Sem a ração diária e os remédios essenciais, eles simplesmente não têm para onde ir."
+</div>
+
+<p>
+Hoje enfrentamos o momento financeiro mais delicado de toda a nossa história. São consumidos <strong>mais de 100 kg de ração todos os dias</strong> — ultrapassando 3 toneladas por mês —, além das despesas contínuas com hospitais veterinários parceiros para procedimentos ortopédicos, internações em UTI, vacinas e cuidados 24 horas.
+</p>
+<p>
+Nossas reservas se esgotaram e os estoques de suprimentos estão no fim. <strong>Precisamos da união e da solidariedade de todos para que esses 412 corações continuem batendo.</strong>
+</p>
+</div>
+</div>
+</section>
+
+<!-- SECTION: FAST PIX DONATION (GREEN BANNER) -->
+<section class="pix-banner-green" id="pix-rapido">
+<h2 class="banner-title">FAÇA SUA DOAÇÃO<br>AGORA MESMO</h2>
+<p class="banner-sub">Qualquer quantia ajuda a encher uma tigela e salva vidas hoje!</p>
+
+<div class="pix-white-card">
+<span class="pix-card-label">Link Pix Oficial (Copia e Cola):</span>
+<div class="pix-input-group">
+<input type="text" class="pix-input-field" value="https://link.syncpayments.com.br/AxkHLA" readonly id="pixKeyInputBanner" onclick="this.select()">
+</div>
+<button class="btn-pix-copy-green" onclick="copyPixKey('https://link.syncpayments.com.br/AxkHLA')">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+COPIAR CHAVE PIX
+</button>
+</div>
+
+<ul class="pix-trust-list">
+<li>✓ Chave Pix oficial verificada e sem cobrança de taxas</li>
+<li>✓ 100% dos recursos destinados aos cuidados dos animais</li>
+<li>✓ Comprovantes e prestação de contas diárias publicadas</li>
+</ul>
+</section>
+
+<!-- SECTION: DEPOIMENTOS (VÍDEOS) -->
+<section class="content-section" id="depoimentos">
+<div style="max-width: 800px; margin: 0 auto; text-align: center;">
+<span class="section-tag">DEPOIMENTOS</span>
+<h2 class="section-title">Quem acompanha de perto nosso trabalho</h2>
+<p class="section-subtitle">Conheça o impacto real de cada doação</p>
+
+<div class="video-grid">
+ <div class="video-wrapper" style="overflow: hidden; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); height: 450px; position: relative;">
+ <iframe class="lazy-video" width="100%" height="570" data-src="https://www.youtube-nocookie.com/embed/NO56ewBwyOg?autoplay=1&loop=1&playlist=NO56ewBwyOg&controls=0&modestbranding=1&rel=0&disablekb=1&fs=0&iv_load_policy=3" frameborder="0" allow="autoplay; encrypted-media" style="position: absolute; top: -60px; left: 0;"></iframe>
+ </div>
+ <div class="video-wrapper" style="overflow: hidden; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); height: 450px; position: relative;">
+ <iframe class="lazy-video" width="100%" height="570" data-src="https://www.youtube-nocookie.com/embed/Fde_AV9ocmw?autoplay=1&loop=1&playlist=Fde_AV9ocmw&controls=0&modestbranding=1&rel=0&disablekb=1&fs=0&iv_load_policy=3" frameborder="0" allow="autoplay; encrypted-media" style="position: absolute; top: -60px; left: 0;"></iframe>
+ </div>
+</div>
+</div>
+</section>
+
+<!-- SECTION: HISTÓRIAS DE RESGATE (EXATAMENTE 4 CARDS- GRADE 2x2 NO DESKTOP) -->
+<section class="content-section" id="caes">
+<div class="dog-cards-container">
+<span class="section-tag">HISTÓRIAS DE RESGATE</span>
+<h2 class="section-title">Alguns dos anjinhos escolhidos<br>pelo abrigo</h2>
+<p class="section-subtitle">Conheça quem depende diretamente do seu apoio para continuar o tratamento</p>
+
+<div class="dog-cards-list">
+<!-- Card 1: Thor -->
+<div class="dog-card">
+<div class="dog-card-thumb">
+<img src="imagens/dog_pingo.webp" alt="Cão Thor resgatado">
+</div>
+<div class="dog-card-info">
+<div>
+<h3 class="dog-card-title">Thor</h3>
+<span class="dog-tag-pill">Cirurgia de Fratura</span>
+<p class="dog-card-desc">Atropelado em rodovia de alta velocidade. Passou por cirurgia com pinos e faz fisioterapia semanal.</p>
+</div>
+<button class="btn-dog-help" onclick="openDonationModal(50)">
+AJUDAR O THOR
+</button>
+</div>
+</div>
+
+<!-- Card 2: Mel & Filhotes -->
+<div class="dog-card">
+<div class="dog-card-thumb">
+<img src="imagens/dog_mel.webp" alt="Cadela Mel resgatada">
+</div>
+<div class="dog-card-info">
+<div>
+<h3 class="dog-card-title">Mel & Seus 6 Filhotes</h3>
+<span class="dog-tag-pill">Maternidade & Vacinas</span>
+<p class="dog-card-desc">Resgatada desnutrida sob forte temporal protegendo sua ninhada recém-nascida em terreno baldio.</p>
+</div>
+<button class="btn-dog-help" onclick="openDonationModal(50)">
+AJUDAR A MEL
+</button>
+</div>
+</div>
+
+<!-- Card 3: Negão (Nosso Vovô) -->
+<div class="dog-card">
+<div class="dog-card-thumb">
+<img src="imagens/dog_negao.webp" alt="Cão Negão resgatado">
+</div>
+<div class="dog-card-info">
+<div>
+<h3 class="dog-card-title">Negão (Nosso Vovô)</h3>
+<span class="dog-tag-pill">Idoso & Cardiopata</span>
+<p class="dog-card-desc">Abandonado após anos de fidelidade. É cego de um olho e necessita de medicação cardíaca contínua.</p>
+</div>
+<button class="btn-dog-help" onclick="openDonationModal(50)">
+AJUDAR O NEGÃO
+</button>
+</div>
+</div>
+
+<!-- Card 4: Família Pingo -->
+<div class="dog-card">
+<div class="dog-card-thumb">
+<img src="imagens/dog_thor.webp" alt="Família Pingo em tratamento">
+</div>
+<div class="dog-card-info">
+<div>
+<h3 class="dog-card-title">Família Pingo</h3>
+<span class="dog-tag-pill">Tratamento de Pele</span>
+<p class="dog-card-desc">Irmãozinhos resgatados em estado crítico de sarna, anemia profunda e desidratação, em plena recuperação.</p>
+</div>
+<button class="btn-dog-help" onclick="openDonationModal(50)">
+AJUDAR A FAMÍLIA
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SECTION: COMPARISON (O QUE ACONTECE COM / SEM VOCÊ `) -->
+<section class="content-section" id="comparativo">
+<div class="comparison-container">
+<h2 class="section-title">O que acontece se vocêê não ajudar vs. O que a sua doação é capaz de fazer</h2>
+<p class="section-subtitle">Sua decisão faz a diferença entre a sobrevivência e a vulnerabilidade desses cães</p>
+
+<div class="comparison-grid">
+<!-- SEM AJUDA -->
+<div class="comparison-card card-without">
+<span class="comp-badge badge-red">SEM A SUA AJUDA</span>
+<ul class="comp-list">
+<li>
+<span class="comp-icon-cross">✕</span>
+<span>Falta iminente de ração para 412 animais em poucos dias.</span>
+</li>
+<li>
+<span class="comp-icon-cross">✕</span>
+<span>Cirurgias de emergência e antibióticos interrompidos por falta de recursos.</span>
+</li>
+<li>
+<span class="comp-icon-cross">✕</span>
+<span>Risco real e iminente de colapso e fechamento do abrigo.</span>
+</li>
+</ul>
+</div>
+
+<!-- COM SUA AJUDA -->
+<div class="comparison-card card-with">
+<span class="comp-badge badge-green">COM A SUA AJUDA</span>
+<ul class="comp-list">
+<li>
+<span class="comp-icon-check">✓</span>
+<span>Tigela cheia e alimentação nutritiva diária para todos os cães.</span>
+</li>
+<li>
+<span class="comp-icon-check">✓</span>
+<span>Vacinas, remédios, curativos e veterinário 24h garantidos.</span>
+</li>
+<li>
+<span class="comp-icon-check">✓</span>
+<span>Baias secas, protegidas do frio e seguras contra temporais.</span>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="comparison-callout">
+<p>Sua doação de qualquer valor compra comida e salva vidas hoje!</p>
+<button class="btn-block-green" onclick="openDonationModal()">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+QUERO AJUDAR AGORA
+</button>
+<div class="trust-micro" style="margin-top: 0.65rem;">
+<span>Transparência total em cada centavo arrecadado</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SECTION: ONDE VAI SEU APOIO (IMPACT CARDS) -->
+<section class="content-section" id="impacto">
+<div class="impact-container">
+<span class="section-tag">ONDE VAI SEU APOIO</span>
+<h2 class="section-title">Veja o impacto real da sua contribuição</h2>
+<p class="section-subtitle">Descubra como pequenas quantias transformam o destino dos nossos resgatados</p>
+
+<div class="impact-cards-grid">
+<!-- Card R$ 25 -->
+<div class="impact-card" onclick="openDonationModal(25)">
+<div class="impact-icon-circle">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18.06 22.99h-12.12c-1.63 0-2.95-1.32-2.95-2.95v-7.09c0-1.63 1.32-2.95 2.95-2.95h12.12c1.63 0 2.95 1.32 2.95 2.95v7.09c0 1.63-1.32 2.95-2.95 2.95zm-12.12-11c-.52 0-.95.43-.95.95v7.09c0 .52.43.95.95.95h12.12c.52 0 .95-.43.95-.95v-7.09c0-.52-.43-.95-.95-.95h-12.12zM12 2c-3.87 0-7 3.13-7 7h2c0-2.76 2.24-5 5-5s5 2.24 5 5h2c0-3.87-3.13-7-7-7z"/></svg>
+</div>
+<div class="impact-amount">R$ 25</div>
+<div class="impact-label">Alimentação Semanal</div>
+<p class="impact-desc">Garante ração nutritiva para 1 cãozinho por uma semana inteira.</p>
+</div>
+
+<!-- Card R$ 50 -->
+<div class="impact-card" onclick="openDonationModal(50)">
+<div class="impact-icon-circle">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M4.5 10.5C3.67 10.5 3 11.17 3 12s.67 1.5 1.5 1.5h15c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5h-15zm6-6C9.67 4.5 9 5.17 9 6v12c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V6c0-.83-.67-1.5-1.5-1.5z"/></svg>
+</div>
+<div class="impact-amount">R$ 50</div>
+<div class="impact-label">Medicamentos & Vacinas</div>
+<p class="impact-desc">Compra antibióticos, vermífugos e curativos essenciais para a enfermaria.</p>
+</div>
+
+<!-- Card R$ 100+ -->
+<div class="impact-card" onclick="openDonationModal(100)">
+<div class="impact-icon-circle">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
+</div>
+<div class="impact-amount">R$ 100+</div>
+<div class="impact-label">Cirurgias & Baias</div>
+<p class="impact-desc">Ajuda nos custos de cirurgias ortopédicas de emergência e manutenção das baias.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SECTION: TRANSPAR `NCIA FINANCEIRA & TABELA (CENTERED) -->
+<section class="content-section" id="transparencia">
+<div class="transparency-container">
+<span class="section-tag">TRANSPAR `NCIA</span>
+<h2 class="section-title">Para onde vai cada centavo</h2>
+<p class="section-subtitle">Nosso compromisso é com a verdade e o bem-estar de cada animal acolhido</p>
+
+<div class="transparency-desktop-grid">
+<!-- Budget Breakdown Table -->
+<div class="budget-table-card">
+<div class="budget-row">
+<span class="budget-name">Ração e Alimentação Mensal (3 toneladas)</span>
+<span class="budget-val">R$ 42.500,00</span>
+</div>
+<div class="budget-row">
+<span class="budget-name">Tratamentos Veterinários e Cirurgias</span>
+<span class="budget-val">R$ 26.800,00</span>
+</div>
+<div class="budget-row">
+<span class="budget-name">Medicamentos, Vacinas e Antipulgas</span>
+<span class="budget-val">R$ 14.300,00</span>
+</div>
+<div class="budget-row">
+<span class="budget-name">Manutenção do Abrigo, Limpeza e Cuidadores</span>
+<span class="budget-val">R$ 8.900,00</span>
+</div>
+<div class="budget-row row-total">
+<span class="budget-name">Total Estimado Necessário</span>
+<span class="budget-val">R$ 92.500,00</span>
+</div>
+</div>
+
+<!-- KPI Summary Cards -->
+<div class="kpi-counters-grid">
+<div class="kpi-item">
+<div class="kpi-num">+412</div>
+<div class="kpi-label">Animais acolhidos e protegidos</div>
+</div>
+<div class="kpi-item">
+<div class="kpi-num">3 Ton.</div>
+<div class="kpi-label">De ração consumidas/mês</div>
+</div>
+<div class="kpi-item">
+<div class="kpi-num">24 Horas</div>
+<div class="kpi-label">Dedicação diária ininterrupta</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SECTION: ATUALIZAÇ "ESDO ABRIGO (ALINHADA AO CENTRO) -->
+<section class="content-section" id="atualizacoes">
+<div class="updates-centered-container">
+<span class="section-tag">ATUALIZAÇ "ES</span>
+<h2 class="section-title">Últimas notícias do abrigo</h2>
+<p class="section-subtitle">Acompanhe as novidades e o andamento dos resgates em tempo real</p>
+
+<div class="updates-cards-list">
+<div class="update-card-item">
+<span class="update-date-badge">HOJE</span>
+<h3 class="update-title">Chegada emergencial de ração! </h3>
+<p class="update-desc">Com as primeiras doações desta vaquinha, conseguimos descarregar 40 sacos de ração para garantir a alimentação da semana.</p>
+</div>
+
+<div class="update-card-item">
+<span class="update-date-badge">ONTEM</span>
+<h3 class="update-title">Thor realizou o raio-X pós-cirúrgico</h3>
+<p class="update-desc">A fratura está calcinando perfeitamente e o veterinário autorizou o início dos passos leves na grama com apoio da equipe.</p>
+</div>
+
+<div class="update-card-item">
+<span class="update-date-badge">ESTA SEMANA</span>
+<h3 class="update-title">Lançamento da Campanha de Solidariedade</h3>
+<p class="update-desc">Início da mobilização online para evitar o fechamento do abrigo e quitar as contas veterinárias pendentes.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SECTION: DEPOIMENTOS(CARROSSEL EM LOOP INFINITO) -->
+<section class="content-section" id="depoimentos">
+<div class="testimonials-section-wrap">
+<span class="section-tag">DEPOIMENTOS</span>
+<h2 class="section-title">Quem acompanha de perto nosso trabalho</h2>
+<p class="section-subtitle">Profissionais, voluntários e padrinhos que vivenciam o dia a dia do nosso acolhimento</p>
+
+<!-- Carousel Wrapper -->
+<div class="testimonials-carousel-container" id="testimonialsContainer">
+<div class="testimonials-track" id="testimonialsTrack">
+
+<!-- Slide 1 -->
+<div class="testimonial-slide">
+<div class="testimonial-card-styled">
+<div class="test-stars"> & & & & &</div>
+<p class="test-quote-body">
+"Acompanho o abrigo voluntariamente há mais de 4 anos. A dedicação e o amor que essa equipe tem por cada vida resgatada é comovente. Cada centavo doado se transforma diretamente em ração de qualidade e cirurgias que salvam vidas."
+</p>
+<div class="test-author-row">
+<div class="test-avatar-circle">CV</div>
+<div class="test-author-info">
+<div class="test-author-name">Dra. Camila Vasconcelos</div>
+<div class="test-author-meta">Médica Veterinária ⬢ CRMV/SP 48.201</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Slide 2 -->
+<div class="testimonial-slide">
+<div class="testimonial-card-styled">
+<div class="test-stars"> & & & & &</div>
+<p class="test-quote-body">
+"Já adotei dois cãezinhos desse abrigo e sou madrinha de outros três. É um trabalho sério, 100% transparente e feito com o coração. Quem puder ajudar com qualquer valor pelo Pix, faça isso, eles dependem de nós!"
+</p>
+<div class="test-author-row">
+<div class="test-avatar-circle">PM</div>
+<div class="test-author-info">
+<div class="test-author-name">Patrícia Mendes</div>
+<div class="test-author-meta">Voluntária e Madrinha do Abrigo</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Slide 3 -->
+<div class="testimonial-slide">
+<div class="testimonial-card-styled">
+<div class="test-stars"> & & & & &</div>
+<p class="test-quote-body">
+"Realizei a cirurgia ortopédica na patinha do Thor. O pós-operatório exige medicação diária e curativos com custo elevado. Essa vaquinha é fundamental para que o tratamento desses animais não seja paralisado."
+</p>
+<div class="test-author-row">
+<div class="test-avatar-circle">MG</div>
+<div class="test-author-info">
+<div class="test-author-name">Dr. Marcelo Guimarães</div>
+<div class="test-author-meta">Cirurgião Veterinário Parceiro</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Slide 4 -->
+<div class="testimonial-slide">
+<div class="testimonial-card-styled">
+<div class="test-stars"> & & & & &</div>
+<p class="test-quote-body">
+"A transparência deles em postar cada nota fiscal e cada saco de ração descarregado nos fez virar doadores mensais. Ver esses cães recuperados e felizes enche a nossa família de esperança."
+</p>
+<div class="test-author-row">
+<div class="test-avatar-circle">JR</div>
+<div class="test-author-info">
+<div class="test-author-name">Juliana & Roberto Ramos</div>
+<div class="test-author-meta">Adotantes e Doadores Mensais</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Slide 5 -->
+<div class="testimonial-slide">
+<div class="testimonial-card-styled">
+<div class="test-stars"> & & & & &</div>
+<p class="test-quote-body">
+"Doei R$ 100 pelo Pie recebi a confirmação rápida. Acompanho as postagens diárias e vejo a seriedade com que tratam cada animal resgatado. Parabéns a toda a equipe de cuidadores!"
+</p>
+<div class="test-author-row">
+<div class="test-avatar-circle">LS</div>
+<div class="test-author-info">
+<div class="test-author-name">Lucas Silveira</div>
+<div class="test-author-meta">Doador via Pix ⬢ São Paulo/SP</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Slide 6 -->
+<div class="testimonial-slide">
+<div class="testimonial-card-styled">
+<div class="test-stars"> & & & & &</div>
+<p class="test-quote-body">
+"Quando a enchente atingiu nossa região, o Abrigo Esperança foi o único que abriu as portas e resgatou animais que estavam se afogando. Eles merecem todo o apoio da nossa comunidade."
+</p>
+<div class="test-author-row">
+<div class="test-avatar-circle">BF</div>
+<div class="test-author-info">
+<div class="test-author-name">Beatriz Fontes</div>
+<div class="test-author-meta">Protetora de Animais Resgatados</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- Carousel Navigation Controls & Dots -->
+<div class="carousel-controls">
+<button class="btn-carousel-nav" onclick="prevTestimonialSlide(); resetCarouselTimer();" aria-label="Depoimento anterior">  </button>
+
+<div class="carousel-dots-list" id="carouselDots">
+<span class="carousel-dot active" onclick="goToTestimonialSlide(0)"></span>
+<span class="carousel-dot" onclick="goToTestimonialSlide(1)"></span>
+<span class="carousel-dot" onclick="goToTestimonialSlide(2)"></span>
+<span class="carousel-dot" onclick="goToTestimonialSlide(3)"></span>
+<span class="carousel-dot" onclick="goToTestimonialSlide(4)"></span>
+</div>
+
+<button class="btn-carousel-nav" onclick="nextTestimonialSlide(); resetCarouselTimer();" aria-label="Próximo depoimento">  </button>
+</div>
+</div>
+</section>
+
+<!-- SECTION: PRESTAÇÒO DE CONTAS- BOLETOSE NOTASFISCAISREAIS-->
+<section class="content-section" id="prestacao-contas">
+<span class="section-tag">TRANSPAR `NCIA TOTAL</span>
+<h2 class="section-title">Prestação de contas: veja boletos e notas fiscais</h2>
+<p class="section-subtitle">Todas as despesas são auditáveis e publicadas para total clareza perante a comunidade</p>
+
+<div class="doc-section-wrapper">
+<!-- Interactive Document Tabs -->
+<div class="doc-tabs-nav">
+<button class="doc-tab-btn active" onclick="switchDocTab('tab-boleto', this)">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+1. Boleto Ração (Distribuidora)
+</button>
+<button class="doc-tab-btn" onclick="switchDocTab('tab-danfe', this)">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+2. Nota Fiscal DANFE (SEFAZ)
+</button>
+<button class="doc-tab-btn" onclick="switchDocTab('tab-clinica', this)">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+3. Fatura Clínica Veterinária
+</button>
+</div>
+
+<!-- Document Header Actions -->
+<div class="doc-actions-bar">
+<div>
+<span class="doc-badge-status-real status-urgent" id="docCurrentBadge">
+  AGUARDANDO RECURSOS- VENCIMENTO PR XIMO
+</span>
+</div>
+<div class="doc-btn-group">
+<button class="btn-doc-tool" onclick="openDocZoom()">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+Ver em Tela Cheia / Zoom
+</button>
+<button class="btn-doc-tool" onclick="downloadDocMock('Boleto_Racao_4819.pdf')">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+Baixar PDF
+</button>
+</div>
+</div>
+
+<!-- Canvas Area displaying the active document -->
+<div class="doc-canvas-area">
+
+<!-- ================= TAB 1: AUTHENTIC FEBRABAN BOLETO ================= -->
+<div class="tab-pane-doc active" id="tab-boleto">
+<div class="authentic-boleto-paper">
+<!-- Ink Rubber Stamp -->
+<div class="rubber-stamp">
+COBRANÇA REGISTRADA<br>CIP / SISTEMA BANCÁRIO
+</div>
+
+<!-- Febraban Standard Bank Header -->
+<div class="boleto-febraban-header">
+<div class="boleto-bank-logo">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="#002b80"><rect width="24" height="24" rx="4"/><path d="M4 12h16M12 4v16" stroke="#fff" stroke-width="3"/></svg>
+<span>BANCO DO BRASIL</span>
+</div>
+<div class="boleto-bank-code">001-9</div>
+<div class="boleto-linha-digitavel">00190.00009 01234.567890 12345.678901 1 98760000184500</div>
+</div>
+
+<!-- Febraban Standard Data Grid -->
+<table class="boleto-table">
+<tr>
+<td colspan="5" style="width: 70%;">
+<span class="boleto-field-title">Local de Pagamento</span>
+<span class="boleto-field-val">PAGÁVEL EM QUALQUER BANCO OU CORRESPONDENTE BANCÁRIO ATÉ O VENCIMENTO</span>
+</td>
+<td style="width: 30%;">
+<span class="boleto-field-title">Vencimento</span>
+<span class="boleto-field-val" style="color: #c91a25; font-weight: 900; font-size: 0.95rem;">15/09/2026</span>
+</td>
+</tr>
+<tr>
+<td colspan="5">
+<span class="boleto-field-title">Beneficiário</span>
+<span class="boleto-field-val">NUTRI-PET INDÚSTRIA E DISTRIBUIDORA DE RAÇ "ESLTDA</span>
+</td>
+<td>
+<span class="boleto-field-title">Agência / Código Beneficiário</span>
+<span class="boleto-field-val">3281-9 / 0048192-5</span>
+</td>
+</tr>
+<tr>
+<td style="width: 18%;">
+<span class="boleto-field-title">Data do Documento</span>
+<span class="boleto-field-val">28/08/2026</span>
+</td>
+<td style="width: 22%;">
+<span class="boleto-field-title">Nº do Documento</span>
+<span class="boleto-field-val">DUP-004819</span>
+</td>
+<td style="width: 10%;">
+<span class="boleto-field-title">Espécie Doc.</span>
+<span class="boleto-field-val">DM</span>
+</td>
+<td style="width: 8%;">
+<span class="boleto-field-title">Aceite</span>
+<span class="boleto-field-val">N</span>
+</td>
+<td style="width: 12%;">
+<span class="boleto-field-title">Data Processamento</span>
+<span class="boleto-field-val">28/08/2026</span>
+</td>
+<td>
+<span class="boleto-field-title">Nosso Número</span>
+<span class="boleto-field-val">17/0048192019-8</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="boleto-field-title">Uso do Banco</span>
+<span class="boleto-field-val"></span>
+</td>
+<td>
+<span class="boleto-field-title">Carteira</span>
+<span class="boleto-field-val">17</span>
+</td>
+<td>
+<span class="boleto-field-title">Espécie</span>
+<span class="boleto-field-val">R$</span>
+</td>
+<td>
+<span class="boleto-field-title">Quantidade</span>
+<span class="boleto-field-val">120</span>
+</td>
+<td>
+<span class="boleto-field-title">(x) Valor</span>
+<span class="boleto-field-val"></span>
+</td>
+<td>
+<span class="boleto-field-title">(=) Valor do Documento</span>
+<span class="boleto-field-val bold-price">R$ 18.450,00</span>
+</td>
+</tr>
+<tr>
+<td colspan="5" rowspan="5">
+<span class="boleto-field-title">Instruções (Texto de responsabilidade do Beneficiário)</span>
+<div class="boleto-instructions-box">
+<p><strong>SR. CAIXA: NÃO RECEBER AP S15 DIASDO VENCIMENTO.</strong></p>
+<p>⬢ Cobrar Multa contratual de 2% (R$ 369,00) após a data de vencimento.</p>
+<p>⬢ Cobrar Juros de Mora diários de R$ 6,15 ao dia (1% a.m.).</p>
+<p>⬢ Título sujeito a protesto em cartório após 05 (cinco) dias úteis do vencimento.</p>
+<p>⬢ REF.: Fornecimento emergencial de 120 sacos de ração especial 15kg (Adultos e Filhotes) - NF-e 004.819.</p>
+</div>
+</td>
+<td>
+<span class="boleto-field-title">(-) Desconto / Abatimento</span>
+<span class="boleto-field-val"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="boleto-field-title">(-) Outras Deduções</span>
+<span class="boleto-field-val"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="boleto-field-title">(+) Mora / Multa</span>
+<span class="boleto-field-val"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="boleto-field-title">(+) Outros Acréscimos</span>
+<span class="boleto-field-val"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="boleto-field-title">(=) Valor Cobrado</span>
+<span class="boleto-field-val"></span>
+</td>
+</tr>
+</table>
+
+<!-- Pagador Info Bo-->
+<div style="border: 1psolid #000; padding: 6px; font-size: 0.75rem; margin-bottom: 8px;">
+<span class="boleto-field-title">Pagador</span>
+<strong>ASSOCIAÇÒO DE RESGATE E PROTEÇÃO ANIMAL (ABRIGO ESPERANÇA)</strong><br>
+Estrada Municipal das Palmeiras, Km 14, S/N - Zona Rural - CEP: 13800-970
+</div>
+</div>
+</div>
+
+<!-- ================= TAB 2: AUTHENTIC DANFE (NF-e SEFAZ) ================= -->
+<div class="tab-pane-doc" id="tab-danfe">
+<div class="authentic-danfe-paper">
+<!-- Digital SEFAZ Green Stamp -->
+<div class="rubber-stamp-green">
+✓ AUTORIZADA PELA SEFAZ<br>
+PROTOCOLO: 135260849201948
+</div>
+
+<!-- DANFE Top Header -->
+<div class="danfe-header-grid">
+<div class="danfe-emitente-col">
+<div class="danfe-emitente-title">NUTRI-PET INDÚSTRIA E DISTRIB. DE ALIMENTOSANIMAISLTDA</div>
+<div class="danfe-emitente-info">
+AV. MARGINAL DIREITA DO TIETÊ, 1420 - GALPÃO 4<br>
+SÒO PAULO - SP - CEP: 05118-100 - FONE: (11) 3649-9200<br>
+<strong>IE:</strong> 114.892.341.110
+</div>
+</div>
+
+<div class="danfe-center-col">
+<span class="danfe-title-big">DANFE</span>
+<span class="danfe-subtitle-tiny">DOCUMENTO AUXILIAR DA NOTA FISCAL ELETR —NICA</span>
+<div style="font-size: 0.68rem; margin-bottom: 2px;">0 - ENTRADA &nbsp; <strong>1 - SAÍDA [ 1 ]</strong></div>
+<span class="danfe-nf-number">Nº 000.004.819</span>
+<span style="font-size: 0.65rem;">SÉRIE 1 - FOLHA 1/1</span>
+</div>
+
+<div class="danfe-chave-col">
+<span class="danfe-chave-title">CHAVE DE ACESSO NF-e (44 DÍGITOS)</span>
+<div class="danfe-chave-barcode">
+<svg viewBox="0 0 260 30" preserveAspectRatio="none">
+<rect width="260" height="30" fill="#fff"/>
+<rect x="2" y="0" width="2" height="30" fill="#000"/><rect x="6" y="0" width="3" height="30" fill="#000"/>
+<rect x="12" y="0" width="1" height="30" fill="#000"/><rect x="16" y="0" width="4" height="30" fill="#000"/>
+<rect x="23" y="0" width="2" height="30" fill="#000"/><rect x="28" y="0" width="3" height="30" fill="#000"/>
+<rect x="34" y="0" width="1" height="30" fill="#000"/><rect x="38" y="0" width="2" height="30" fill="#000"/>
+<rect x="44" y="0" width="4" height="30" fill="#000"/><rect x="52" y="0" width="2" height="30" fill="#000"/>
+<rect x="58" y="0" width="3" height="30" fill="#000"/><rect x="64" y="0" width="1" height="30" fill="#000"/>
+<rect x="70" y="0" width="3" height="30" fill="#000"/><rect x="76" y="0" width="2" height="30" fill="#000"/>
+<rect x="82" y="0" width="4" height="30" fill="#000"/><rect x="90" y="0" width="1" height="30" fill="#000"/>
+<rect x="95" y="0" width="3" height="30" fill="#000"/><rect x="102" y="0" width="2" height="30" fill="#000"/>
+<rect x="108" y="0" width="4" height="30" fill="#000"/><rect x="116" y="0" width="2" height="30" fill="#000"/>
+<rect x="122" y="0" width="3" height="30" fill="#000"/><rect x="128" y="0" width="1" height="30" fill="#000"/>
+<rect x="134" y="0" width="3" height="30" fill="#000"/><rect x="140" y="0" width="2" height="30" fill="#000"/>
+<rect x="146" y="0" width="4" height="30" fill="#000"/><rect x="154" y="0" width="2" height="30" fill="#000"/>
+<rect x="160" y="0" width="3" height="30" fill="#000"/><rect x="166" y="0" width="1" height="30" fill="#000"/>
+<rect x="172" y="0" width="4" height="30" fill="#000"/><rect x="180" y="0" width="2" height="30" fill="#000"/>
+<rect x="186" y="0" width="3" height="30" fill="#000"/><rect x="192" y="0" width="1" height="30" fill="#000"/>
+<rect x="198" y="0" width="4" height="30" fill="#000"/><rect x="206" y="0" width="2" height="30" fill="#000"/>
+<rect x="212" y="0" width="3" height="30" fill="#000"/><rect x="218" y="0" width="2" height="30" fill="#000"/>
+<rect x="224" y="0" width="4" height="30" fill="#000"/><rect x="232" y="0" width="1" height="30" fill="#000"/>
+<rect x="238" y="0" width="3" height="30" fill="#000"/><rect x="245" y="0" width="2" height="30" fill="#000"/>
+<rect x="252" y="0" width="3" height="30" fill="#000"/><rect x="257" y="0" width="2" height="30" fill="#000"/>
+</svg>
+</div>
+<div class="danfe-chave-numbers">3526 0814 8923 4100 0155 5500 1000 0048 1919 4820 1943</div>
+</div>
+</div>
+
+<!-- Natureza da Operação -->
+<table class="danfe-box-table">
+<tr>
+<td style="width: 50%;">
+<span class="boleto-field-title">NATUREZA DA OPERAÇÃO</span>
+<strong>VENDA DE MERCADORIA DESTINADA A ENTIDADE SEM FINSLUCRATIVOS</strong>
+</td>
+<td>
+<span class="boleto-field-title">PROTOCOLO DE AUTORIZAÇÃO DE USO</span>
+<strong>135260849201948 - 28/08/2026 às 14:32:10</strong>
+</td>
+</tr>
+</table>
+
+<!-- Destinatário / Remetente -->
+<table class="danfe-box-table">
+<tr>
+<th colspan="3">DESTINATÁRIO / REMETENTE</th>
+</tr>
+<tr>
+<td style="width: 60%;">
+<span class="boleto-field-title">NOME / RAZÒO SOCIAL</span>
+<strong>ASSOCIAÇÒO DE RESGATE E PROTEÇÃO ANIMAL (ABRIGO ESPERANÇA)</strong>
+</td>
+<td style="width: 25%;">
+<span class="boleto-field-title">DOCUMENTO</span>
+<strong>***.***.***/****-**</strong>
+</td>
+<td>
+<span class="boleto-field-title">DATA DE EMISSÒO</span>
+<strong>28/08/2026</strong>
+</td>
+</tr>
+</table>
+
+<!-- Produtos / Itens Faturados -->
+<table class="danfe-box-table">
+<thead>
+<tr>
+<th style="width: 8%;">C DIGO</th>
+<th style="width: 44%;">DESCRIÇÒO DO PRODUTO / SERVIÇO</th>
+<th style="width: 8%;">NCM</th>
+<th style="width: 6%;">CFOP</th>
+<th style="width: 6%;">UN</th>
+<th style="width: 6%;">QTD</th>
+<th style="width: 11%;">VLR. UNIT</th>
+<th style="width: 11%;">VLR. TOTAL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RC-1042</td>
+<td>RAÇÃO CÃESADULTOSPREMIUM ESPECIAL 15KG (ALTA ABSORÇÒO)</td>
+<td>2309.90.10</td>
+<td>5102</td>
+<td>SC</td>
+<td>80</td>
+<td>145,00</td>
+<td><strong>R$ 11.600,00</strong></td>
+</tr>
+<tr>
+<td>RC-1088</td>
+<td>RAÇÃO SUPER PREMIUM FILHOTES& LACTANTES15KG</td>
+<td>2309.90.10</td>
+<td>5102</td>
+<td>SC</td>
+<td>30</td>
+<td>165,00</td>
+<td><strong>R$ 4.950,00</strong></td>
+</tr>
+<tr>
+<td>MED-2014</td>
+<td>SUPLEMENTO MINERAL & VITAMÍNICO CANINO POTE 500G</td>
+<td>2309.90.90</td>
+<td>5102</td>
+<td>FR</td>
+<td>25</td>
+<td>76,00</td>
+<td><strong>R$ 1.900,00</strong></td>
+</tr>
+</tbody>
+</table>
+
+<!-- Totais da Nota -->
+<table class="danfe-box-table">
+<tr>
+<th>BASE DE CÁLC. ICMS</th>
+<th>VALOR DO ICMS</th>
+<th>VALOR DO FRETE</th>
+<th>VALOR TOTAL PRODUTOS</th>
+<th>VALOR TOTAL DA NOTA</th>
+</tr>
+<tr>
+<td>R$ 18.450,00</td>
+<td>R$ 2.214,00</td>
+<td>R$ 0,00 (Gratuito)</td>
+<td>R$ 18.450,00</td>
+<td style="color: #c91a25; font-weight: 900; font-size: 0.88rem;">R$ 18.450,00</td>
+</tr>
+</table>
+</div>
+</div>
+
+<!-- ================= TAB 3: AUTHENTIC CLINICAL INVOICE ================= -->
+<div class="tab-pane-doc" id="tab-clinica">
+<div class="authentic-clinic-paper">
+<!-- Clinic Paper Header -->
+<div class="clinic-header">
+<div class="clinic-logo-text">
+<h3>HOSPITAL VETERINÁRIO & CENTRO CIRÚRGICO 24H</h3>
+<p>INSTITUTO DE MEDICINA VETERINÁRIA SÒO FRANCISCO DE ASSISLTDA</p>
+<p>⬢ RUA DAS CLÍNICAS, 520 ⬢ TEL: (11) 3491-8820</p>
+</div>
+<div class="clinic-crmv-badge">
+<strong>CRMV-SP 48.201</strong><br>
+Prontuários Auditados
+</div>
+</div>
+
+<div style="background: #f1f5f9; padding: 6px 10px; border-radius: 4px; font-size: 0.75rem; margin-bottom: 10px;">
+<strong>CLIENTE / BENEFICIÁRIO:</strong> ASSOCIAÇÒO DE RESGATE E PROTEÇÃO ANIMAL (ABRIGO ESPERANÇA)<br>
+<strong>PERÍODO DE INTERNAÇÕES:</strong> 01/08/2026 a 28/08/2026 ⬢ <strong>RELATÓRIO CIRÚRGICO DE EMERGÊNCIA</strong>
+</div>
+
+<!-- Procedures Table -->
+<table class="clinic-table">
+<thead>
+<tr>
+<th>PRONT.</th>
+<th>PACIENTE / RAÇA</th>
+<th>PROCEDIMENTOS MÉDICO-CIRÚRGICOS REALIZADOS</th>
+<th>VALOR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#4812</td>
+<td><strong>THOR</strong><br><span style="font-size: 0.7rem; color: #64748b;">Canino, SRD, 4 anos</span></td>
+<td>Osteossíntese tíbia/fíbula com placa bloqueada 3.5mm de titânio + 3 RDigitais + Anestesia inalatória + 5 diárias UTI cirúrgica e antibioticoterapia.</td>
+<td><strong>R$ 4.850,00</strong></td>
+</tr>
+<tr>
+<td>#4819</td>
+<td><strong>MEL & FILHOTES</strong><br><span style="font-size: 0.7rem; color: #64748b;">Canina, SRD, 2 anos</span></td>
+<td>Cesariana obstétrica de emergência + Ultrassonografia abdominal + Suporte neonatal em incubadora de 6 filhotes recém-nascidos + fluidoterapia.</td>
+<td><strong>R$ 3.200,00</strong></td>
+</tr>
+<tr>
+<td>#4823</td>
+<td><strong>NEGÃO (VOV —)</strong><br><span style="font-size: 0.7rem; color: #64748b;">Canino, Idoso 12 anos</span></td>
+<td>Avaliação cardiológica com Ecocardiograma Doppler colorido + Painel bioquímico renal/hepático completo + Protocolo inotrópico para cardiopatia.</td>
+<td><strong>R$ 1.920,00</strong></td>
+</tr>
+<tr>
+<td>#4830</td>
+<td><strong>FAMÍLIA PINGO</strong><br><span style="font-size: 0.7rem; color: #64748b;">4 filhotes resgatados</span></td>
+<td>Raspado cutâneo profundo para ácaro escabiose + Protocolo antiparasitário + Banhos medicamentosos e suporte nutricional intensivo.</td>
+<td><strong>R$ 2.900,00</strong></td>
+</tr>
+</tbody>
+<tfoot>
+<tr style="background: #fef2f2; font-weight: 800;">
+<td colspan="3" style="text-align: right; font-size: 0.85rem;">TOTAL GERAL DOS SERVIÇOSCLÍNICOS:</td>
+<td style="color: #c91a25; font-size: 0.95rem;">R$ 12.870,00</td>
+</tr>
+</tfoot>
+</table>
+
+<!-- Doctor Signature -->
+<div class="clinic-footer-signature">
+<div style="font-size: 0.72rem; color: #64748b;">
+* Documento autenticado pelo corpo clínico e aberto para fiscalização pública de qualquer doador.
+</div>
+<div class="vet-signature-box">
+<div style="font-family: 'Courier New', monospace; font-style: italic; font-weight: bold; margin-bottom: 2px;">
+Dr. Marcelo S. Guimarães
+</div>
+<strong>DR. MARCELO S. GUIMARÒES</strong><br>
+Médico Veterinário - CRMV/SP 38.412
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+<!-- Trust footer pills -->
+<div class="doc-footer-badges">
+
+<button class="btn-dog-help" style="background: #16a34a;" onclick="openDonationModal()">
+AJUDAR A QUITAR ESTASCONTAS
+</button>
+</div>
+</div>
+</section>
+
+<!-- SECTION: PERGUNTASFREQUENTES(FAQ) -->
+<section class="content-section" id="faq">
+<div class="faq-container">
+<span class="section-tag">DÚVIDASFREQUENTES</span>
+<h2 class="section-title">Perguntas Frequentes</h2>
+<p class="section-subtitle">Tire suas dúvidas antes de fazer sua doação solidária</p>
+
+<div class="faq-accordion">
+<div class="faq-item active">
+<button class="faq-question" onclick="toggleFaq(this)">
+Como posso doar pelo Pix?
+<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+</button>
+<div class="faq-answer">
+É muito simples! Basta clicar no botão "COPIAR CHAVE PIX", abrir o aplicativo do seu banco, escolher a opção Pix Copia e Cola (ou Chave Pix), colar a chave e digitar qualquer valor que desejar doar. A confirmação é instantânea.
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFaq(this)">
+O abrigo realmente existe? Onde fica localizado?
+<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+</button>
+<div class="faq-answer">
+Sim! Somos uma entidade devidamente registrada e com sede própria no interior. Mantemos portões abertos para visitas com agendamento prévio aos sábados para quem deseja conhecer os cães e voluntariar.
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFaq(this)">
+Posso adotar um dos cãezinhos do abrigo?
+<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+</button>
+<div class="faq-answer">
+Com certeza! Nosso maior objetivo é que cada um encontre uma família amorosa e responsável. Todos os animais são entregues castrados, vermifugados e vacinados após entrevista e análise de espaço seguro.
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFaq(this)">
+Como sei que o dinheiro foi usado corretamente?
+<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+</button>
+<div class="faq-answer">
+Nossa prestação de contas é 100% aberta e auditável. Postamos vídeos diários da chegada dos caminhões de ração, comprovantes fiscais, relatórios cirúrgicos e notas de farmácia em nossas redes oficiais.
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question" onclick="toggleFaq(this)">
+Posso enviar ração ou medicamentos fisicamente?
+<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+</button>
+<div class="faq-answer">
+Sim, recebemos doações de sacos de ração fechados, medicamentos veterinários e cobertores diretamente no abrigo ou em nossos pontos de coleta parceiros. Entre em contato conosco para o endereço de envio.
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SECTION: FINAL CTA -->
+<section class="final-cta-section">
+<h2 class="hero-title" style="font-size: 1.85rem;">
+Sua contribuição pode salvar a vida desses <span class="text-red">412 cãezinhos</span>
+</h2>
+<p class="hero-subtitle" style="margin: 0 auto 1.25rem;">
+Não feche os olhos para quem só tem a nós. Ajude agora mesmo com qualquer quantia pelo Pix!
+</p>
+
+<div class="hero-buttons-grid" style="max-width: 540px; margin: 0 auto;">
+<button class="btn-cta-green" onclick="openDonationModal()">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+CONTRIBUIR PELO PIX
+</button>
+<button class="btn-cta-red" onclick="copyPixKey()">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+COPIAR CHAVE PIX
+</button>
+</div>
+</section>
+
+</main>
+
+<!-- FOOTER (NO WHITE SPACE UNDERNEATH) -->
+<footer class="site-footer">
+<div class="page-container">
+<div class="footer-top-grid">
+<div class="footer-brand">
+<h4>
+<span style="color:#e11d48;">❤️</span> ABRIGO ESPERANÇA ANIMAL
+</h4>
+<p>Associação de Proteção e Bem-Estar Animal sem fins lucrativos. Dedicação exclusiva ao acolhimento de animais abandonados e vítimas de maus-tratos.</p>
+
+
+<div class="footer-security-seals">
+<span class="sec-seal"> x— Site Seguro</span>
+<span class="sec-seal">SSL 256-Bit</span>
+<span class="sec-seal">✓ Verificado</span>
+</div>
+</div>
+
+<div class="footer-col">
+<h5>Navegação</h5>
+<ul>
+<li><a href="#historia">A História</a></li>
+<li><a href="#pix-rapido">Como Doar</a></li>
+<li><a href="#caes">Nossos Cães</a></li>
+<li><a href="#transparencia">Custos & Metas</a></li>
+</ul>
+</div>
+
+<div class="footer-col">
+<h5>Transparência</h5>
+<ul>
+<li><a href="#prestacao-contas">Boletos e Notas</a></li>
+<li><a href="#depoimentos">Depoimentos</a></li>
+<li><a href="#faq">Dúvidas Frequentes</a></li>
+<li><a href="#" onclick="alert('Política de Privacidade: Seus dados nunca são compartilhados ou vendidos. Total respeito à LGPD.'); return false;">Privacidade</a></li>
+</ul>
+</div>
+</div>
+
+<div class="footer-bottom-copy">
+<p>© 2026 Campanha Oficial de Apoio ao Abrigo de Animais. Todos os direitos reservados.</p>
+</div>
+</div>
+</footer>
+
+<!-- STICKY BOTTOM DONATION BAR -->
+<div class="sticky-bottom-bar" id="stickyBottomBar">
+<div class="sticky-bottom-inner">
+<div class="sticky-progress-info">
+<div class="sticky-numbers">
+<span>R$ 48.910</span>
+<span>Meta: R$ 150.000 (32%)</span>
+</div>
+<div class="sticky-progress-track">
+<div class="sticky-progress-fill" style="width: 32.6%;"></div>
+</div>
+</div>
+<button class="btn-sticky-donate" onclick="openDonationModal()">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+DOAR AGORA
+</button>
+</div>
+</div>
+
+<!-- DOCUMENT ZOOM MODAL -->
+<div class="doc-zoom-overlay" id="docZoomModal" onclick="closeDocZoomOnOverlay(event)">
+<div class="doc-zoom-box">
+<div class="doc-zoom-header">
+<h4>Inspeção de Documento Oficial - Alta Resolução</h4>
+<button class="modal-close-btn" style="background: rgba(255,255,255,0.1); color: white;" onclick="closeDocZoom()">✕</button>
+</div>
+<div class="doc-zoom-content" id="docZoomContent">
+<!-- Injected via script.js -->
+</div>
+</div>
+</div>
+
+<!-- PIX DONATION MODAL -->
+<div class="modal-overlay" id="pixDonationModal" onclick="closeDonationModalOnOverlay(event)">
+<div class="modal-card">
+<div class="modal-header">
+<h3>Faça uma doação pelo Pix</h3>
+<button class="modal-close-btn" onclick="closeDonationModal()" aria-label="Fechar janela">✕</button>
+</div>
+
+<div class="modal-body">
+<label class="pix-card-label" style="margin-bottom: 0.6rem;">Escolha o valor da sua contribuição:</label>
+
+<div class="value-presets-grid">
+<button class="btn-preset-val" onclick="selectPresetValue(10, this)">R$ 10</button>
+<button class="btn-preset-val active" onclick="selectPresetValue(25, this)">R$ 25</button>
+<button class="btn-preset-val" onclick="selectPresetValue(50, this)">R$ 50</button>
+<button class="btn-preset-val" onclick="selectPresetValue(100, this)">R$ 100</button>
+</div>
+
+<!-- Dynamic Pix Link per value -->
+<div style="background: #f0fdf4; border: 2px solid #16a34a; border-radius: 12px; padding: 1.2rem; margin: 1rem 0; text-align: center;">
+ <div style="font-size: 0.85rem; color: #166534; font-weight: 700; margin-bottom: 0.5rem;">🔗 Link Pix para o valor selecionado:</div>
+ <div id="selectedValueLabel" style="font-size: 1.3rem; font-weight: 800; color: #15803d; margin-bottom: 0.75rem;">R$ 25,00</div>
+ <div class="pix-input-group" style="margin-bottom: 0.75rem;">
+ <input type="text" class="pix-input-field" id="modalPixKeyInput" value="https://link.syncpayments.com.br/iFQenP" readonly onclick="this.select()" style="text-align: center; font-size: 0.8rem;">
+ </div>
+ <button class="btn-pix-copy-green" id="modalCopyBtn" onclick="copyModalPixKey()" style="width: 100%;">
+ <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+ COPIAR LINK E PAGAR
+ </button>
+</div>
+
+<ul class="modal-steps-list">
+<li>
+<span class="step-num-badge">1</span>
+<span>Clique no botão verde acima para <strong>copiar a chave Pix</strong>.</span>
+</li>
+<li>
+<span class="step-num-badge">2</span>
+<span>Abra o app do seu banco e vá em <strong>Área Pix Pagar / Transferir</strong>.</span>
+</li>
+<li>
+<span class="step-num-badge">3</span>
+<span>Cole a chave, confirme o valor escolhido e conclua. <strong>Muito obrigado!</strong></span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- POST-COPY URGENT CONFIRMATION MODAL -->
+<div class="modal-overlay" id="postCopyModal" onclick="closePixCopiedOnOverlay(event)">
+<div class="modal-card post-copy-card">
+<div class="post-copy-icon">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+</div>
+
+<h3 class="post-copy-title">CHAVE PIX COPIADA!</h3>
+<div class="post-copy-urgency"> O ABRIGO NÃO PODE ESPERAR!</div>
+
+<p class="post-copy-text">
+Temos mais de <strong>400 vidas</strong> dependendo desta arrecadação para não ficarem sem ração e atendimento médico. Por favor, conclua sua doação agora mesmo no aplicativo do seu banco!
+</p>
+
+<div style="background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px; padding: 0.85rem; margin-bottom: 1.25rem; text-align: left; font-size: 0.82rem; color: #334155;">
+<strong style="display: block; margin-bottom: 4px; color: #0f172a;">Próximo passo:</strong>
+1. Abra o app do seu banco agora<br>
+2. Vá na opção <strong>Pix Pagar ou Chave Pix</strong><br>
+3. Cole a chave que acabou de ser copiada e confirme o valor!
+</div>
+
+<button class="btn-block-green" onclick="closePixCopiedModal()">
+ABRIR MEU BANCO E CONCLUIR
+</button>
+</div>
+</div>
+
+<!-- TOAST NOTIFICATION -->
+<div class="toast-notice" id="toastNotification">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+<span id="toastMessageText">Chave Picopiada com sucesso!</span>
+</div>
+
+<!-- SOCIAL PROOF FLOATING TOAST -->
+<div class="social-proof-toast" id="socialProofToast">
+<div class="sp-avatar" id="spDonorAvatar">M</div>
+<div>
+<div class="sp-text">
+<strong id="spDonorName">Mariana S. (SP)</strong> <span id="spDonorValue">doou R$ 50 via Pix</span>
+</div>
+<div class="sp-time" id="spDonorTime">há 2 min</div>
+</div>
+</div>
+
+<!-- JAVASCRIPT LOGIC -->
+<script src="script.js"></script>
+</body>
+</html>
+
+

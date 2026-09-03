@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" width="160" height="40">
+  <!-- Heart and Paw Emblem -->
+  <g transform="translate(4, 4)">
+    <!-- Heart Background -->
+    <path d="M16 29 C8 21 2 15 2 9 A7 7 0 0 1 14 4 C15 6 16 7 16 7 C16 7 17 6 18 4 A7 7 0 0 1 30 9 C30 15 24 21 16 29 Z" fill="#e11d48"/>
+    <!-- Central Paw Pad in Heart -->
+    <ellipse cx="16" cy="17" rx="4" ry="3.2" fill="#ffffff"/>
+    <ellipse cx="11.5" cy="11.5" rx="1.8" ry="2.2" fill="#ffffff" transform="rotate(-15 11.5 11.5)"/>
+    <ellipse cx="20.5" cy="11.5" rx="1.8" ry="2.2" fill="#ffffff" transform="rotate(15 20.5 11.5)"/>
+    <ellipse cx="8.5" cy="15.5" rx="1.5" ry="1.9" fill="#ffffff" transform="rotate(-30 8.5 15.5)"/>
+    <ellipse cx="23.5" cy="15.5" rx="1.5" ry="1.9" fill="#ffffff" transform="rotate(30 23.5 15.5)"/>
+  </g>
+  <!-- Text Label -->
+  <text x="42" y="19" font-family="'DM Sans', sans-serif" font-weight="900" font-size="12" fill="#0f172a" letter-spacing="-0.3">ABRIGO</text>
+  <text x="42" y="32" font-family="'DM Sans', sans-serif" font-weight="700" font-size="10.5" fill="#e11d48" letter-spacing="0.5">ESPERANÇA</text>
+</svg>

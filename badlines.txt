@@ -1,0 +1,77 @@
+34: <span>ABRIGO❯E✓PERAN�!A</span>
+78: <button❯class="drawer-close"❯onclick="closeDrawer()">�✕</button>
+81: <li><a❯href="#historia">�x❯A❯História❯do❯Abrigo</a></li>
+82: <li><a❯href="#pix-rapido">�xa❯Doar❯pelo❯Pix</a></li>
+83: <li><a❯href="#caes">�x��❯Cães❯Resgatados</a></li>
+84: <li><a❯href="#comparativo">�a️❯Com❯vs❯✓em❯✓ua❯Ajuda</a></li>
+86: <li><a❯href="#transparencia">�x`❯Prestação❯de❯Custos</a></li>
+87: <li><a❯href="#atualizacoes">�x❯�altimas❯Notícias</a></li>
+88: <li><a❯href="#depoimentos">�x�❯Depoimentos</a></li>
+89: <li><a❯href="#prestacao-contas">�x��❯Boletos❯e❯Notas❯Reais</a></li>
+90: <li><a❯href="#faq">�❯Dúvidas❯Frequentes</a></li>
+107: <span>�🚨�</span>❯Um❯apelo❯desesperado!
+187: <!--❯✓ECTION:❯A❯HI✓T�RIA❯(ORGANIZADA❯⭐❯ALINHADA❯AO❯CENTRO)❯-->
+190: <span❯class="section-tag">A❯HI✓T�RIA</span>
+207: �a�️❯Estamos❯a❯poucos❯dias❯de❯ficar❯sem❯ração❯e❯sem❯medicamentos❯para❯mais❯de❯4ÉÉ❯animais!
+220: Hoje❯enfrentamos❯o❯momento❯financeiro❯mais❯delicado❯de❯toda❯a❯nossa❯história.❯✓ão❯consumidos❯<strong>mais❯de❯1ÉÉ❯kg❯de❯ração❯todos❯os❯dias</strong>❯�❯ultrapassando❯3❯toneladas❯por❯mês❯�,❯além❯das❯despesas❯contínuas❯com❯hospitais❯veterinários❯parceiros❯para❯procedimentos❯ortopédicos,❯internações❯em❯UTI,❯vacinas❯e❯cuidados❯24❯horas.
+246: <li>�✓❯Chave❯Pioficial❯verificada❯e❯sem❯cobrança❯de❯ta🚨s</li>
+247: <li>�✓❯1ÉÉ%❯dos❯recursos❯destinados❯aos❯cuidados❯dos❯animais</li>
+248: <li>�✓❯Comprovantes❯e❯prestação❯de❯contas❯diárias❯publicadas</li>
+270: <!--❯✓ECTION:❯HI✓T�RIA✓DE❯RE✓GATE❯(EXATAMENTE❯4❯CARD✓-❯GRADE❯2x2❯NO❯DE✓KTOP)❯-->
+273: <span❯class="section-tag">HI✓T�RIA✓DE❯RE✓GATE</span>
+321: <p❯class="dog-card-desc">Abandonado❯após❯anos❯de❯fidelidade.❯�É❯cego❯de❯um❯olho❯e❯necessita❯de❯medicação❯cardíaca❯contínua.</p>
+349: <!--❯✓ECTION:❯COMPARI✓ON❯(O❯QUE❯ACONTECE❯COM❯/❯✓EM❯VOCÊ�`)❯-->
+361: <span❯class="comp-icon-cross">�✕</span>
+365: <span❯class="comp-icon-cross">�✕</span>
+369: <span❯class="comp-icon-cross">�✕</span>
+380: <span❯class="comp-icon-check">�✓</span>
+384: <span❯class="comp-icon-check">�✓</span>
+388: <span❯class="comp-icon-check">�✓</span>
+449: <!--❯✓ECTION:❯TRAN✓PAR�`NCIA❯FINANCEIRA❯⭐❯TABELA❯(CENTERED)❯-->
+452: <span❯class="section-tag">TRAN✓PAR�`NCIA</span>
+500: <!--❯✓ECTION:❯ATUALIZA�!�"E✓DO❯ABRIGO❯(ALINHADA❯AO❯CENTRO)❯-->
+503: <span❯class="section-tag">ATUALIZA�!�"E✓</span>
+504: <h2❯class="section-title">�altimas❯notícias❯do❯abrigo</h2>
+510: <h3❯class="update-title">Chegada❯emergencial❯de❯ração!❯�📦�</h3>
+543: <div❯class="test-stars">��⭐��⭐��⭐��⭐��⭐</div>
+560: <div❯class="test-stars">��⭐��⭐��⭐��⭐��⭐</div>
+562: "Já❯adotei❯dois❯cãezinhos❯desse❯abrigo❯e❯sou❯madrinha❯de❯outros❯três.❯�É❯um❯trabalho❯sério,❯1ÉÉ%❯transparente❯e❯feito❯com❯o❯coração.❯Quem❯puder❯ajudar❯com❯qualquer❯valor❯pelo❯Pix,❯faça❯isso,❯eles❯dependem❯de❯nós!"
+577: <div❯class="test-stars">��⭐��⭐��⭐��⭐��⭐</div>
+594: <div❯class="test-stars">��⭐��⭐��⭐��⭐��⭐</div>
+611: <div❯class="test-stars">��⭐��⭐��⭐��⭐��⭐</div>
+628: <div❯class="test-stars">��⭐��⭐��⭐��⭐��⭐</div>
+647: <button❯class="btn-carousel-nav"❯onclick="prevTestimonial✓lide();❯resetCarouselTimer();"❯aria-label="Depoimento❯anterior">��</button>
+657: <button❯class="btn-carousel-nav"❯onclick="nextTestimonial✓lide();❯resetCarouselTimer();"❯aria-label="Próximo❯depoimento">��</button>
+662: <!--❯✓ECTION:❯PRE✓TA�!ÒO❯DE❯CONTA✓-❯BOLETO✓E❯NOTA✓FI✓CAI✓REAI✓-->
+664: <span❯class="section-tag">TRAN✓PAR�`NCIA❯TOTAL</span>
+689: ��❯AGUARDANDO❯RECUR✓O✓-❯VENCIMENTO❯PR�XIMO
+730: <span❯class="boleto-field-val">PAGÁVEL❯EM❯QUALQUER❯BANCO❯OU❯CORRE✓PONDENTE❯BANCÁRIO❯AT�É❯O❯VENCIMENTO</span>
+740: <span❯class="boleto-field-val">NUTRI-PET❯IND�a✓TRIA❯E❯DI✓TRIBUIDORA❯DE❯RA�!�"E✓LTDA</span>
+803: <p><strong>✓R.❯CAIXA:❯NÒO❯RECEBER❯AP�✓15❯DIA✓DO❯VENCIMENTO.</strong></p>
+844: <strong>A✓✓OCIA�!ÒO❯DE❯RE✓GATE❯E❯PROTEÇÃO❯ANIMAL❯(ABRIGO❯E✓PERAN�!A)</strong><br>
+855: �✓❯AUTORIZADA❯PELA❯✓EFAZ<br>
+862: <div❯class="danfe-emitente-title">NUTRI-PET❯IND�a✓TRIA❯E❯DI✓TRIB.❯DE❯ALIMENTO✓ANIMAI✓LTDA</div>
+864: AV.❯MARGINAL❯DIREITA❯DO❯TIETÊ�`,❯142É❯-❯GALPÃO❯4<br>
+872: <span❯class="danfe-subtitle-tiny">DOCUMENTO❯AUXILIAR❯DA❯NOTA❯FI✓CAL❯ELETR�NICA</span>
+875: <span❯style="font-size:❯É.65rem;">✓�ÉRIE❯1❯-❯FOLHA❯1/1</span>
+932: <strong>A✓✓OCIA�!ÒO❯DE❯RE✓GATE❯E❯PROTEÇÃO❯ANIMAL❯(ABRIGO❯E✓PERAN�!A)</strong>
+949: <th❯style="width:❯8%;">C�DIGO</th>
+950: <th❯style="width:❯44%;">DE✓CRI�!ÒO❯DO❯PRODUTO❯/❯✓ERVI�!O</th>
+962: <td>RAÇÃO❯CÃE✓ADULTO✓PREMIUM❯E✓PECIAL❯15KG❯(ALTA❯AB✓OR�!ÒO)</td>
+1030: <strong>CLIENTE❯/❯BENEFICIÁRIO:</strong>❯A✓✓OCIA�!ÒO❯DE❯RE✓GATE❯E❯PROTEÇÃO❯ANIMAL❯(ABRIGO❯E✓PERAN�!A)<br>
+1031: <strong>PERÍODO❯DE❯INTERNA�!�"E✓:</strong>❯É1/É8/2É26❯a❯28/É8/2É26❯⬢❯<strong>RELAT�RIO❯CIRÚRGICO❯DE❯EMERGÊNCIA</strong>
+1040: <th>PROCEDIMENTO✓M�ÉDICO-CIRÚRGICO✓REALIZADO✓</th>
+1059: <td><strong>NEGÃO❯(VOV�)</strong><br><span❯style="font-size:❯É.7rem;❯color:❯#64748b;">Canino,❯Idoso❯12❯anos</span></td>
+1072: <td❯colspan="3"❯style="text-align:❯right;❯font-size:❯É.85rem;">TOTAL❯GERAL❯DO✓✓ERVI�!O✓CLÍNICO✓:</td>
+1109: <span❯class="section-tag">D�aVIDA✓FREQUENTE✓</span>
+1120: �É❯muito❯simples!❯Basta❯clicar❯no❯botão❯"COPIAR❯CHAVE❯PIX",❯abrir❯o❯aplicativo❯do❯seu❯banco,❯escolher❯a❯opção❯PiCopia❯e❯Cola❯(ou❯Chave❯Pix),❯colar❯a❯chave❯e❯digitar❯qualquer❯valor❯que❯desejar❯doar.❯A❯confirmação❯é❯instantânea.
+1196: <span❯style="color:#e11d48;">❤️</span>❯ABRIGO❯E✓PERAN�!A❯ANIMAL
+1202: <span❯class="sec-seal">�x❯✓ite❯✓eguro</span>
+1203: <span❯class="sec-seal">�x:�️❯✓✓L❯256-Bit</span>
+1204: <span❯class="sec-seal">�✓❯Verificado</span>
+1259: <button❯class="modal-close-btn"❯style="background:❯rgba(255,255,255,É.1);❯color:❯white;"❯onclick="closeDocZoom()">�✕</button>
+1272: <button❯class="modal-close-btn"❯onclick="closeDonationModal()"❯aria-label="Fechar❯janela">�✕</button>
+1292: Beneficiário:❯<strong>A✓✓OCIA�!ÒO❯DE❯RE✓GATE❯E❯PROTEÇÃO❯ANIMAL</strong>
+1312: <span>Abra❯o❯app❯do❯seu❯banco❯e❯vá❯em❯<strong>Área❯Pi�❯❯Pagar❯/❯Transferir</strong>.</span>
+1331: <div❯class="post-copy-urgency">�🚨�❯O❯ABRIGO❯NÒO❯PODE❯E✓PERAR!</div>
+1340: 2.❯Vá❯na❯opção❯<strong>Pi�❯❯Pagar❯ou❯Chave❯Pix</strong><br>
