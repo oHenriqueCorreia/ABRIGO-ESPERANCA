@@ -1811,6 +1811,10 @@ a {
   font-weight: 700;
 }
 
+.mobile-document-summary {
+  display: none;
+}
+
 /* -------------------------------------------------------------
    3. CLINICAL VETERINARY INVOICE
    ------------------------------------------------------------- */
@@ -2800,6 +2804,27 @@ a {
   .authentic-danfe-paper .danfe-box-table th {
     overflow-wrap: anywhere;
     word-break: break-word;
+  }
+
+  .mobile-document-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 8px 0 10px;
+    padding: 10px 12px;
+    border: 1px solid #fecaca;
+    border-radius: 6px;
+    background: #fff7f7;
+    color: #7f1d1d;
+    font-size: 0.72rem;
+    font-weight: 700;
+  }
+
+  .mobile-document-summary strong {
+    color: #b91c1c;
+    font-size: 0.9rem;
+    white-space: nowrap;
   }
 
   .authentic-clinic-paper .clinic-header,
