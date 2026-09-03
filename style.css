@@ -2764,6 +2764,71 @@ a {
     line-height: 1.25;
   }
 
+  .authentic-danfe-paper,
+  .authentic-clinic-paper {
+    overflow-x: auto;
+  }
+
+  .authentic-danfe-paper .danfe-header-grid {
+    display: block;
+  }
+
+  .authentic-danfe-paper .danfe-emitente-col,
+  .authentic-danfe-paper .danfe-center-col,
+  .authentic-danfe-paper .danfe-chave-col {
+    border-right: 0;
+    border-bottom: 1px solid #000000;
+    padding: 8px;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .authentic-danfe-paper .danfe-chave-col {
+    border-bottom: 0;
+  }
+
+  .authentic-danfe-paper .danfe-chave-barcode {
+    width: 100%;
+  }
+
+  .authentic-danfe-paper .danfe-box-table {
+    min-width: 620px;
+    table-layout: fixed;
+  }
+
+  .authentic-danfe-paper .danfe-box-table td,
+  .authentic-danfe-paper .danfe-box-table th {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .authentic-clinic-paper .clinic-header,
+  .authentic-clinic-paper .clinic-footer-signature {
+    display: block;
+  }
+
+  .authentic-clinic-paper .clinic-crmv-badge {
+    margin-top: 10px;
+    text-align: left;
+  }
+
+  .authentic-clinic-paper .clinic-table {
+    min-width: 680px;
+    table-layout: fixed;
+  }
+
+  .authentic-clinic-paper .clinic-table th,
+  .authentic-clinic-paper .clinic-table td {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .authentic-clinic-paper .vet-signature-box {
+    width: 100%;
+    max-width: 240px;
+    margin-top: 14px;
+  }
+
   /* Document Actions Bar */
   .doc-actions-bar {
     flex-direction: column;
