@@ -12,14 +12,15 @@ module.exports = async (request, response) => {
     return sendJson(response, 422, { message: "Informe nome e telefone válidos para gerar o PIX." });
   }
   // A Cash API exige o campo e-mail. O checkout não coleta e-mail do doador,
-  // então usamos um identificador técnico, derivado do telefone informado.
-  const payerEmail = `pix-${phone}@ajude-quem-precisa.vercel.app`;
+  // então cada cobrança recebe um identificador técnico único.
+  const externalId = `doacao_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
+  const payerEmail = `${externalId}@ajude-quem-precisa.vercel.app`;
   try {
     const deposit = await cashRequest("/deposits/pix", {
       method: "POST",
       body: JSON.stringify({
         amount,
-        externalId: `doacao_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`,
+        externalId,
         postbackUrl: `${publicOrigin(request)}/api/tribopay-webhook`,
         method: "pix",
         transactionOrigin: "cashin",
