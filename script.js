@@ -216,6 +216,18 @@ function stopPixStatusPolling() {
   pixStatusTimer = undefined;
 }
 
+function generateAnotherPix() {
+  stopPixStatusPolling();
+  document.getElementById("pixPaymentPanel").style.display = "none";
+  document.getElementById("pixCheckoutForm").style.display = "block";
+  document.getElementById("pixDonationDetails").style.display = "none";
+  document.getElementById("customPixValueForm").style.display = "none";
+  document.getElementById("pixQrCode").style.display = "none";
+  document.getElementById("pixQrCode").removeAttribute("src");
+  setPixError("");
+  showToast("Escolha outro valor para gerar uma nova cobrança PIX.");
+}
+
 function startPixStatusPolling(id) {
   stopPixStatusPolling();
   const status = document.getElementById("pixPaymentStatus");
