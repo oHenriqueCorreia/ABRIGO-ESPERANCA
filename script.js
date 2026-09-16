@@ -84,8 +84,8 @@ function openDonationModal(presetAmount) {
   const paymentStatus = document.getElementById("pixPaymentStatus");
   paymentStatus.textContent = "Aguardando a confirmação do pagamento…";
   paymentStatus.style.color = "#166534";
+  document.getElementById("pixDonationDetails").style.display = "none";
   document.getElementById("customPixValueForm").style.display = "none";
-  document.getElementById("pixReadyHint").style.display = "block";
   setPixError("");
   
   if (presetAmount) {
@@ -118,8 +118,8 @@ function selectPresetValue(val, btnElement) {
   if (btnElement) {
     btnElement.classList.add("active");
   }
+  document.getElementById("pixDonationDetails").style.display = "block";
   document.getElementById("customPixValueForm").style.display = "none";
-  document.getElementById("pixReadyHint").style.display = "block";
 
   selectedPixAmount = Number(val) || 25;
   const labelEl = document.getElementById("selectedValueLabel");
@@ -132,20 +132,9 @@ function selectPresetValue(val, btnElement) {
 
 function showCustomPixValue() {
   document.querySelectorAll(".btn-preset-val").forEach(btn => btn.classList.remove("active"));
+  document.getElementById("pixDonationDetails").style.display = "block";
   document.getElementById("customPixValueForm").style.display = "block";
-  document.getElementById("pixReadyHint").style.display = "none";
   document.getElementById("customPixAmount").focus();
-}
-
-function generateCustomPixDonation() {
-  const value = document.getElementById("customPixAmount").value;
-  const amount = Number(String(value).replace(",", "."));
-  if (!Number.isFinite(amount) || amount < 1) {
-    return setPixError("Informe um valor de doação a partir de R$ 1,00.");
-  }
-  selectedPixAmount = amount;
-  document.getElementById("selectedValueLabel").textContent = "R$ " + amount.toFixed(2).replace(".", ",");
-  generatePixDonation();
 }
 
 function copyModalPixKey() {
@@ -162,6 +151,13 @@ function setPixError(message) {
 }
 
 async function generatePixDonation() {
+  const customValueForm = document.getElementById("customPixValueForm");
+  if (customValueForm.style.display !== "none") {
+    const amount = Number(String(document.getElementById("customPixAmount").value).replace(",", "."));
+    if (!Number.isFinite(amount) || amount < 1) return setPixError("Informe um valor de doação a partir de R$ 1,00.");
+    selectedPixAmount = amount;
+    document.getElementById("selectedValueLabel").textContent = "R$ " + amount.toFixed(2).replace(".", ",");
+  }
   const name = document.getElementById("donorName")?.value.trim();
   const phone = document.getElementById("donorPhone")?.value.replace(/\D/g, "");
   const button = document.getElementById("generatePixBtn");

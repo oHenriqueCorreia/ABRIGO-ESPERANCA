@@ -1282,28 +1282,26 @@ DOAR AGORA
 
 <div class="modal-body">
 <div id="pixCheckoutForm">
-<label class="pix-card-label" style="margin-bottom: 0.6rem;">Informe seus dados para gerar o PIX:</label>
-<input class="pix-input-field" id="donorName" type="text" autocomplete="name" placeholder="Seu nome completo" maxlength="120" style="margin-bottom:.65rem; text-align:left;">
-<input class="pix-input-field" id="donorPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Seu telefone com DDD" maxlength="20" style="margin-bottom:1rem; text-align:left;">
-<label class="pix-card-label" style="margin-bottom: 0.6rem;">Agora escolha o valor da sua contribuição:</label>
+<label class="pix-card-label" style="margin-bottom: 0.6rem;">Escolha o valor da sua contribuição:</label>
 
 <div class="value-presets-grid">
-<button class="btn-preset-val" onclick="selectPresetValue(10, this); generatePixDonation()">R$ 10</button>
-<button class="btn-preset-val active" onclick="selectPresetValue(25, this); generatePixDonation()">R$ 25</button>
-<button class="btn-preset-val" onclick="selectPresetValue(50, this); generatePixDonation()">R$ 50</button>
-<button class="btn-preset-val" onclick="selectPresetValue(100, this); generatePixDonation()">R$ 100</button>
+<button class="btn-preset-val" onclick="selectPresetValue(10, this)">R$ 10</button>
+<button class="btn-preset-val active" onclick="selectPresetValue(25, this)">R$ 25</button>
+<button class="btn-preset-val" onclick="selectPresetValue(50, this)">R$ 50</button>
+<button class="btn-preset-val" onclick="selectPresetValue(100, this)">R$ 100</button>
 </div>
 <button class="btn-preset-val btn-custom-pix" onclick="showCustomPixValue()">ESCOLHA O QUE O SEU CORAÇÃO MANDA</button>
 
-<div style="background: #f0fdf4; border: 2px solid #16a34a; border-radius: 12px; padding: 1.2rem; margin: 1rem 0; text-align: center;">
+<div id="pixDonationDetails" style="display:none; background: #f0fdf4; border: 2px solid #16a34a; border-radius: 12px; padding: 1.2rem; margin: 1rem 0; text-align: center;">
  <div style="font-size: 0.85rem; color: #166534; font-weight: 700; margin-bottom: 0.5rem;">Valor da doação:</div>
  <div id="selectedValueLabel" style="font-size: 1.3rem; font-weight: 800; color: #15803d; margin-bottom: 0.75rem;">R$ 25,00</div>
+ <input class="pix-input-field" id="donorName" type="text" autocomplete="name" placeholder="Seu nome completo" maxlength="120" style="margin-bottom:.65rem; text-align:left;">
+ <input class="pix-input-field" id="donorPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Seu telefone com DDD" maxlength="20" style="margin-bottom:.75rem; text-align:left;">
  <div id="customPixValueForm" style="display:none;">
  <label for="customPixAmount" style="display:block; text-align:left; color:#166534; font-weight:700; font-size:.85rem; margin-bottom:.4rem;">Quanto o seu coração manda?</label>
  <input class="pix-input-field" id="customPixAmount" type="number" inputmode="decimal" min="1" step="0.01" placeholder="Ex.: 35,00" style="margin-bottom: .75rem; text-align:left;">
- <button class="btn-pix-copy-green" id="generatePixBtn" onclick="generateCustomPixDonation()" style="width: 100%;">GERAR MEU PIX</button>
  </div>
- <p id="pixReadyHint" style="color:#166534; font-size:.88rem; margin:0;">Escolha um valor acima para gerar seu PIX na hora.</p>
+ <button class="btn-pix-copy-green" id="generatePixBtn" onclick="generatePixDonation()" style="width: 100%;">GERAR PIX SEGURO</button>
  <p id="pixFormError" role="alert" style="display:none; color:#b91c1c; font-size:.85rem; margin:.75rem 0 0;"></p>
 </div>
 
