@@ -7,8 +7,12 @@ module.exports = async (request, response) => {
 
   try {
     const transaction = await publicApiRequest(`/transactions/${encodeURIComponent(id)}`);
-    const data = transaction.data || {};
-    return sendJson(response, 200, { id: data.hash || id, status: data.status || "pending", amount: data.amount });
+    const data = transaction.data || transaction || {};
+    return sendJson(response, 200, {
+      id: data.hash || id,
+      status: data.status || data.payment_status || "pending",
+      amount: data.amount,
+    });
   } catch (error) {
     console.error("TriboPay Public API PIX status failed", { statusCode: error.statusCode, message: error.message });
     return sendJson(response, error.statusCode && error.statusCode < 500 ? error.statusCode : 502, {

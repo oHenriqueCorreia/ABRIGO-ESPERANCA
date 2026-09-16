@@ -94,7 +94,6 @@ function openDonationModal(presetAmount) {
   paymentStatus.textContent = "Aguardando a confirmação do pagamento…";
   paymentStatus.style.color = "#166534";
   document.getElementById("pixDonationDetails").style.display = "none";
-  document.getElementById("customPixValueForm").style.display = "none";
   setPixError("");
   
   if (presetAmount) {
@@ -121,8 +120,6 @@ function closeDonationModalOnOverlay(event) {
 let selectedPixAmount = 25;
 let pixStatusTimer;
 let pixGenerationInProgress = false;
-const MIN_PIX_AMOUNT = 5;
-const MAX_PIX_AMOUNT = 20000;
 
 function selectPresetValue(val, btnElement) {
   // Highlight the selected button
@@ -131,7 +128,6 @@ function selectPresetValue(val, btnElement) {
     btnElement.classList.add("active");
   }
   document.getElementById("pixDonationDetails").style.display = "block";
-  document.getElementById("customPixValueForm").style.display = "none";
 
   selectedPixAmount = Number(val) || 25;
   const labelEl = document.getElementById("selectedValueLabel");
@@ -140,13 +136,6 @@ function selectPresetValue(val, btnElement) {
   }
 
   showToast("Valor de R$ " + selectedPixAmount.toFixed(2).replace(".", ",") + " selecionado!");
-}
-
-function showCustomPixValue() {
-  document.querySelectorAll(".btn-preset-val").forEach(btn => btn.classList.remove("active"));
-  document.getElementById("pixDonationDetails").style.display = "block";
-  document.getElementById("customPixValueForm").style.display = "block";
-  document.getElementById("customPixAmount").focus();
 }
 
 function copyModalPixKey() {
@@ -164,23 +153,13 @@ function setPixError(message) {
 
 async function generatePixDonation() {
   if (pixGenerationInProgress) return;
-  const customValueForm = document.getElementById("customPixValueForm");
-  if (customValueForm.style.display !== "none") {
-    const amount = Number(String(document.getElementById("customPixAmount").value).replace(",", "."));
-    if (!Number.isFinite(amount) || amount < MIN_PIX_AMOUNT || amount > MAX_PIX_AMOUNT) {
-      return setPixError("Informe um valor entre R$ 5,00 e R$ 20.000,00.");
-    }
-    selectedPixAmount = amount;
-    document.getElementById("selectedValueLabel").textContent = "R$ " + amount.toFixed(2).replace(".", ",");
-  }
-  const firstName = document.getElementById("donorFirstName")?.value.trim();
-  const lastName = document.getElementById("donorLastName")?.value.trim();
-  const phone = document.getElementById("donorPhone")?.value.replace(/\D/g, "");
-  const email = document.getElementById("donorEmail")?.value.trim();
-  const cpf = document.getElementById("donorCpf")?.value.replace(/\D/g, "");
+  const name = document.getElementById("donorName")?.value.trim().replace(/\s+/g, " ") || "";
+  const phone = document.getElementById("donorPhone")?.value.replace(/\D/g, "") || "";
+  const email = document.getElementById("donorEmail")?.value.trim() || "";
+  const cpf = document.getElementById("donorCpf")?.value.replace(/\D/g, "") || "";
   const button = document.getElementById("generatePixBtn");
-  if (firstName.length < 2 || lastName.length < 2 || phone.length < 10 || phone.length > 13 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || cpf.length !== 11) {
-    return setPixError("Informe nome, sobrenome, telefone, e-mail e CPF válidos para gerar o PIX.");
+  if (name.length < 5 || name.split(" ").length < 2 || phone.length < 10 || phone.length > 13 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || cpf.length !== 11) {
+    return setPixError("Informe nome e sobrenome, telefone, e-mail e CPF válidos para gerar o PIX.");
   }
 
   setPixError("");
@@ -191,7 +170,7 @@ async function generatePixDonation() {
     const response = await fetch("/api/create-pix", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ amount: Math.round(selectedPixAmount * 100), firstName, lastName, phone, email, cpf }),
+      body: JSON.stringify({ amount: Math.round(selectedPixAmount * 100), name, phone, email, cpf }),
     });
     const data = await response.json();
     if (!response.ok || !data.pix?.code) throw new Error(data.message || "Não foi possível gerar o PIX.");
@@ -224,7 +203,6 @@ function generateAnotherPix() {
   document.getElementById("pixPaymentPanel").style.display = "none";
   document.getElementById("pixCheckoutForm").style.display = "block";
   document.getElementById("pixDonationDetails").style.display = "none";
-  document.getElementById("customPixValueForm").style.display = "none";
   document.getElementById("pixQrCode").style.display = "none";
   document.getElementById("pixQrCode").removeAttribute("src");
   setPixError("");
