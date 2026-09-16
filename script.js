@@ -68,6 +68,15 @@ function showToast(message) {
   }, 4000);
 }
 
+function toggleHomeVideoSound() {
+  const video = document.querySelector(".hero-media-video");
+  const button = document.querySelector(".hero-video-sound-toggle");
+  if (!video || !button) return;
+  video.muted = !video.muted;
+  button.textContent = video.muted ? "🔊 ATIVAR SOM" : "🔇 SILENCIAR";
+  video.play().catch(() => {});
+}
+
 // --- Donation Modal Handlers ---
 function openDonationModal(presetAmount) {
   const modal = document.getElementById("pixDonationModal");

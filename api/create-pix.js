@@ -26,7 +26,10 @@ module.exports = async (request, response) => {
         postbackUrl: `${publicOrigin(request)}/api/tribopay-webhook`,
         method: "pix",
         transactionOrigin: "cashin",
-        payer: { name, email: payerEmail, phone: { number: phone } },
+        // O telefone é validado no checkout, mas não é enviado à operadora.
+        // Isso evita que uma cobrança PIX pendente bloqueie uma nova escolha
+        // de valor feita pela mesma pessoa.
+        payer: { name, email: payerEmail },
       }),
     });
     if (!deposit.pix?.code || !deposit.pix?.imageBase64) {

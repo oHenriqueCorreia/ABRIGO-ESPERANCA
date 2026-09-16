@@ -378,6 +378,22 @@ a {
   height: 100%;
   object-fit: cover;
 }
+.hero-video-sound-toggle {
+  position: absolute;
+  right: .8rem;
+  bottom: .8rem;
+  z-index: 2;
+  border: 0;
+  border-radius: 999px;
+  padding: .55rem .8rem;
+  background: rgba(15, 23, 42, .84);
+  color: #fff;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .03em;
+  cursor: pointer;
+}
+.hero-video-sound-toggle:hover { background: rgba(22, 163, 74, .96); }
 
 .hero-media-img {
   width: 100%;
