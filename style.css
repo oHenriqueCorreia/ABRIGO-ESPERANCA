@@ -372,6 +372,12 @@ a {
   display: block;
   text-align: inherit;
 }
+.hero-media-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 .hero-media-img {
   width: 100%;
@@ -398,24 +404,6 @@ a {
   background: rgba(0,0,0,0.2);
 }
 
-.home-video-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 10000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.25rem;
-  background: rgba(2, 6, 23, .86);
-  backdrop-filter: blur(6px);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity .2s ease, visibility .2s ease;
-}
-.home-video-overlay.active { opacity: 1; visibility: visible; }
-.home-video-dialog { position: relative; width: min(100%, 960px); background: #000; border-radius: 14px; overflow: hidden; box-shadow: 0 24px 70px rgba(0, 0, 0, .45); }
-.home-video-dialog video { display: block; width: 100%; max-height: calc(100vh - 2.5rem); background: #000; }
-.home-video-close { position: absolute; top: .7rem; right: .7rem; z-index: 1; background: rgba(15, 23, 42, .85); color: #fff; }
 
 .play-badge {
   display: inline-flex;
@@ -2932,21 +2920,3 @@ a {
     align-self: center;
   }
 }
-
-
-/* Depoimentos em vídeo: um por vez, responsivo e sem sobreposição. */
-.testimonial-video-player {
-  position: relative;
-  max-width: 760px;
-  aspect-ratio: 16 / 9;
-  margin: 2rem auto 0;
-  overflow: hidden;
-  border-radius: 16px;
-  background: #0f172a;
-  box-shadow: 0 16px 38px rgba(15, 23, 42, .18);
-}
-.testimonial-video-slide { position: absolute; inset: 0; opacity: 0; pointer-events: none; transition: opacity .45s ease; }
-.testimonial-video-slide.active { opacity: 1; pointer-events: auto; }
-.testimonial-video-slide iframe { width: 100%; height: 100%; border: 0; }
-.testimonial-video-progress { position: absolute; z-index: 2; right: 12px; bottom: 12px; padding: .4rem .7rem; border-radius: 999px; background: rgba(15, 23, 42, .78); color: #fff; font-size: .78rem; font-weight: 700; pointer-events: none; }
-@media (max-width: 767px) { .testimonial-video-player { border-radius: 10px; margin-top: 1.4rem; } }

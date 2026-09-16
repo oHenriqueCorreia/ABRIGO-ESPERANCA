@@ -299,36 +299,6 @@ function shareCampaign() {
   }
 }
 
-// --- Video Demo Trigger ---
-function playShelterVideo() {
-  const modal = document.getElementById("homeVideoModal");
-  const video = document.getElementById("homeCampaignVideo");
-  const source = video?.querySelector("source");
-  if (!modal || !video || !source) return;
-  if (!source.src) {
-    source.src = source.dataset.src;
-    video.load();
-  }
-  modal.classList.add("active");
-  modal.setAttribute("aria-hidden", "false");
-  document.body.style.overflow = "hidden";
-  video.play().catch(() => {});
-}
-
-function closeHomeVideo() {
-  const modal = document.getElementById("homeVideoModal");
-  const video = document.getElementById("homeCampaignVideo");
-  if (!modal || !video) return;
-  video.pause();
-  modal.classList.remove("active");
-  modal.setAttribute("aria-hidden", "true");
-  document.body.style.overflow = "";
-}
-
-function closeHomeVideoOnOverlay(event) {
-  if (event.target.id === "homeVideoModal") closeHomeVideo();
-}
-
 // --- Document Viewer Tabs ---
 function switchDocTab(tabId, btnElement) {
   // Update Buttons
@@ -466,59 +436,6 @@ function resetCarouselTimer() {
   startCarouselAutoPlay();
 }
 
-// --- Depoimentos em vídeo: reproduz um por vez e troca ao terminar ---
-let testimonialVideoPlayers = [];
-let activeTestimonialVideo = 0;
-let testimonialVideosReady = false;
-
-function activateTestimonialVideo(index, autoplay = true) {
-  if (!testimonialVideoPlayers.length) return;
-  activeTestimonialVideo = index % testimonialVideoPlayers.length;
-  document.querySelectorAll(".testimonial-video-slide").forEach((slide, position) => {
-    slide.classList.toggle("active", position === activeTestimonialVideo);
-  });
-  const counter = document.getElementById("testimonialVideoCounter");
-  if (counter) counter.textContent = `Depoimento ${activeTestimonialVideo + 1} de ${testimonialVideoPlayers.length}`;
-  testimonialVideoPlayers.forEach((player, position) => {
-    if (position === activeTestimonialVideo) {
-      if (autoplay) player.playVideo();
-    } else {
-      player.pauseVideo();
-    }
-  });
-}
-
-function initializeTestimonialVideos() {
-  if (testimonialVideosReady || !window.YT?.Player) return;
-  const frames = [...document.querySelectorAll(".testimonial-video-slide iframe")];
-  if (!frames.length) return;
-  testimonialVideosReady = true;
-  testimonialVideoPlayers = frames.map((frame, index) => new window.YT.Player(frame.id, {
-    host: "https://www.youtube-nocookie.com",
-    videoId: frame.dataset.videoId,
-    playerVars: { autoplay: index === 0 ? 1 : 0, controls: 1, modestbranding: 1, rel: 0, playsinline: 1 },
-    events: {
-      onReady: (event) => {
-        if (index === 0) event.target.playVideo();
-      },
-      onStateChange: (event) => {
-        if (event.data === window.YT.PlayerState.ENDED && index === activeTestimonialVideo) {
-          activateTestimonialVideo(index + 1);
-        }
-      },
-    },
-  }));
-}
-
-function loadTestimonialVideoAPI() {
-  if (document.getElementById("youtube-iframe-api")) return;
-  const api = document.createElement("script");
-  api.id = "youtube-iframe-api";
-  api.src = "https://www.youtube.com/iframe_api";
-  document.head.appendChild(api);
-}
-
-window.onYouTubeIframeAPIReady = initializeTestimonialVideos;
 
 // --- Social Proof Random Donors Simulation ---
 const DONOR_PROOFS = [
@@ -572,24 +489,6 @@ document.addEventListener("DOMContentLoaded", () => {
     link.addEventListener("click", closeDrawer);
   });
 
-  // Init Carousel
-  updateCarouselUI();
-  startCarouselAutoPlay();
-  loadTestimonialVideoAPI();
-
-  // Pause on hover
-  const carouselContainer = document.getElementById("testimonialsContainer");
-  if (carouselContainer) {
-    carouselContainer.addEventListener("mouseenter", stopCarouselAutoPlay);
-    carouselContainer.addEventListener("mouseleave", startCarouselAutoPlay);
-  }
-
-  // Handle window resize for carousel recalculation
-  window.addEventListener("resize", () => {
-    const max = getMaxIndex();
-    if (currentSlideIndex > max) currentSlideIndex = max;
-    updateCarouselUI();
-  });
 });
 
 // --- Intersection Observer for Lazy Autoplay Videos ---

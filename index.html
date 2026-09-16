@@ -42,7 +42,6 @@
 <a href="#caes">Nossos Cães</a>
 <a href="#transparencia">Custos</a>
 <a href="#atualizacoes">Atualizações</a>
-<a href="#depoimentos">Depoimentos</a>
 <a href="#prestacao-contas">Boletos & Notas</a>
 <a href="#faq">Dúvidas</a>
 </nav>
@@ -87,7 +86,6 @@ DOAR PELO PIX
 <li><a href="#impacto">❤️ Onde Vai Seu Apoio</a></li>
 <li><a href="#transparencia">🧾 Prestação de Custos</a></li>
 <li><a href="#atualizacoes">📰 Últimas Notícias</a></li>
-<li><a href="#depoimentos">💬 Depoimentos</a></li>
 <li><a href="#prestacao-contas">📄 Boletos e Notas Reais</a></li>
 <li><a href="#faq">❓ Dúvidas Frequentes</a></li>
 </ul>
@@ -121,15 +119,11 @@ Ajude nosso abrigo a continuar alimentando e tratando esses animais resgatados d
 <!-- Centered Main Hero Card -->
 <div class="hero-card-centered">
 <!-- Media / Video Container -->
-<button class="hero-media-wrapper" type="button" onclick="playShelterVideo()" aria-label="Assistir ao vídeo da campanha">
-<img class="hero-media-img" src="imagens/hero_video_thumb.png" alt="Resgate e cuidado de cães no abrigo" onerror="this.src='https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800&auto=format&fit=crop&q=80'">
-<div class="hero-play-overlay">
-<span class="play-badge">
-<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-ASSISTA AO VÍDEO
-</span>
+<div class="hero-media-wrapper">
+<video class="hero-media-video" autoplay muted loop playsinline preload="auto" poster="imagens/hero_video_thumb.png" aria-label="Vídeo da campanha de apoio ao abrigo">
+<source src="imagens/video-home.mp4" type="video/mp4">
+</video>
 </div>
-</button>
 </div>
 
 <!-- Progress & Action CTA Area -->
@@ -181,7 +175,6 @@ COPIAR CHAVE PIX
 <a href="#impacto" class="pill-anchor">Onde Vai o Apoio</a>
 <a href="#transparencia" class="pill-anchor">Custos</a>
 <a href="#atualizacoes" class="pill-anchor">Atualizações</a>
-<a href="#depoimentos" class="pill-anchor">Depoimentos</a>
 <a href="#prestacao-contas" class="pill-anchor">Boletos & Notas</a>
 <a href="#faq" class="pill-anchor">Dúvidas</a>
 </nav>
@@ -250,21 +243,6 @@ COPIAR CHAVE PIX
 <li>✓ 100% dos recursos destinados aos cuidados dos animais</li>
 <li>✓ Comprovantes e prestação de contas diárias publicadas</li>
 </ul>
-</section>
-
-<!-- SECTION: DEPOIMENTOS (VÍDEOS) -->
-<section class="content-section" id="depoimentos-em-video">
-<div style="max-width: 800px; margin: 0 auto; text-align: center;">
-<span class="section-tag">DEPOIMENTOS</span>
-<h2 class="section-title">Quem acompanha de perto nosso trabalho</h2>
-<p class="section-subtitle">Conheça o impacto real de cada doação</p>
-
-<div class="testimonial-video-player" id="testimonialVideoPlayer" aria-label="Depoimentos em vídeo">
- <div class="testimonial-video-slide active"><iframe id="testimonialVideo1" title="Depoimento em vídeo 1" data-video-id="NO56ewBwyOg" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
- <div class="testimonial-video-slide"><iframe id="testimonialVideo2" title="Depoimento em vídeo 2" data-video-id="Fde_AV9ocmw" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
- <div class="testimonial-video-progress" aria-live="polite"><span id="testimonialVideoCounter">Depoimento 1 de 2</span></div>
-</div>
-</div>
 </section>
 
 <!-- SECTION: HISTÓRIAS DE RESGATE (EXATAMENTE 4 CARDS- GRADE 2x2 NO DESKTOP) -->
@@ -522,139 +500,6 @@ QUERO AJUDAR AGORA
 <h3 class="update-title">Lançamento da Campanha de Solidariedade</h3>
 <p class="update-desc">Início da mobilização online para evitar o fechamento do abrigo e quitar as contas veterinárias pendentes.</p>
 </div>
-</div>
-</div>
-</section>
-
-<!-- SECTION: DEPOIMENTOS(CARROSSEL EM LOOP INFINITO) -->
-<section class="content-section" id="depoimentos">
-<div class="testimonials-section-wrap">
-<span class="section-tag">DEPOIMENTOS</span>
-<h2 class="section-title">Quem acompanha de perto nosso trabalho</h2>
-<p class="section-subtitle">Profissionais, voluntários e padrinhos que vivenciam o dia a dia do nosso acolhimento</p>
-
-<!-- Carousel Wrapper -->
-<div class="testimonials-carousel-container" id="testimonialsContainer">
-<div class="testimonials-track" id="testimonialsTrack">
-
-<!-- Slide 1 -->
-<div class="testimonial-slide">
-<div class="testimonial-card-styled">
-<div class="test-stars"> & & & & &</div>
-<p class="test-quote-body">
-"Acompanho o abrigo voluntariamente há mais de 4 anos. A dedicação e o amor que essa equipe tem por cada vida resgatada é comovente. Cada centavo doado se transforma diretamente em ração de qualidade e cirurgias que salvam vidas."
-</p>
-<div class="test-author-row">
-<div class="test-avatar-circle">CV</div>
-<div class="test-author-info">
-<div class="test-author-name">Dra. Camila Vasconcelos</div>
-<div class="test-author-meta">Médica Veterinária ⬢ CRMV/SP 48.201</div>
-</div>
-</div>
-</div>
-</div>
-
-<!-- Slide 2 -->
-<div class="testimonial-slide">
-<div class="testimonial-card-styled">
-<div class="test-stars"> & & & & &</div>
-<p class="test-quote-body">
-"Já adotei dois cãezinhos desse abrigo e sou madrinha de outros três. É um trabalho sério, 100% transparente e feito com o coração. Quem puder ajudar com qualquer valor pelo Pix, faça isso, eles dependem de nós!"
-</p>
-<div class="test-author-row">
-<div class="test-avatar-circle">PM</div>
-<div class="test-author-info">
-<div class="test-author-name">Patrícia Mendes</div>
-<div class="test-author-meta">Voluntária e Madrinha do Abrigo</div>
-</div>
-</div>
-</div>
-</div>
-
-<!-- Slide 3 -->
-<div class="testimonial-slide">
-<div class="testimonial-card-styled">
-<div class="test-stars"> & & & & &</div>
-<p class="test-quote-body">
-"Realizei a cirurgia ortopédica na patinha do Thor. O pós-operatório exige medicação diária e curativos com custo elevado. Essa vaquinha é fundamental para que o tratamento desses animais não seja paralisado."
-</p>
-<div class="test-author-row">
-<div class="test-avatar-circle">MG</div>
-<div class="test-author-info">
-<div class="test-author-name">Dr. Marcelo Guimarães</div>
-<div class="test-author-meta">Cirurgião Veterinário Parceiro</div>
-</div>
-</div>
-</div>
-</div>
-
-<!-- Slide 4 -->
-<div class="testimonial-slide">
-<div class="testimonial-card-styled">
-<div class="test-stars"> & & & & &</div>
-<p class="test-quote-body">
-"A transparência deles em postar cada nota fiscal e cada saco de ração descarregado nos fez virar doadores mensais. Ver esses cães recuperados e felizes enche a nossa família de esperança."
-</p>
-<div class="test-author-row">
-<div class="test-avatar-circle">JR</div>
-<div class="test-author-info">
-<div class="test-author-name">Juliana & Roberto Ramos</div>
-<div class="test-author-meta">Adotantes e Doadores Mensais</div>
-</div>
-</div>
-</div>
-</div>
-
-<!-- Slide 5 -->
-<div class="testimonial-slide">
-<div class="testimonial-card-styled">
-<div class="test-stars"> & & & & &</div>
-<p class="test-quote-body">
-"Doei R$ 100 pelo Pie recebi a confirmação rápida. Acompanho as postagens diárias e vejo a seriedade com que tratam cada animal resgatado. Parabéns a toda a equipe de cuidadores!"
-</p>
-<div class="test-author-row">
-<div class="test-avatar-circle">LS</div>
-<div class="test-author-info">
-<div class="test-author-name">Lucas Silveira</div>
-<div class="test-author-meta">Doador via Pix ⬢ São Paulo/SP</div>
-</div>
-</div>
-</div>
-</div>
-
-<!-- Slide 6 -->
-<div class="testimonial-slide">
-<div class="testimonial-card-styled">
-<div class="test-stars"> & & & & &</div>
-<p class="test-quote-body">
-"Quando a enchente atingiu nossa região, o Abrigo Esperança foi o único que abriu as portas e resgatou animais que estavam se afogando. Eles merecem todo o apoio da nossa comunidade."
-</p>
-<div class="test-author-row">
-<div class="test-avatar-circle">BF</div>
-<div class="test-author-info">
-<div class="test-author-name">Beatriz Fontes</div>
-<div class="test-author-meta">Protetora de Animais Resgatados</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<!-- Carousel Navigation Controls & Dots -->
-<div class="carousel-controls">
-<button class="btn-carousel-nav" onclick="prevTestimonialSlide(); resetCarouselTimer();" aria-label="Depoimento anterior">  </button>
-
-<div class="carousel-dots-list" id="carouselDots">
-<span class="carousel-dot active" onclick="goToTestimonialSlide(0)"></span>
-<span class="carousel-dot" onclick="goToTestimonialSlide(1)"></span>
-<span class="carousel-dot" onclick="goToTestimonialSlide(2)"></span>
-<span class="carousel-dot" onclick="goToTestimonialSlide(3)"></span>
-<span class="carousel-dot" onclick="goToTestimonialSlide(4)"></span>
-</div>
-
-<button class="btn-carousel-nav" onclick="nextTestimonialSlide(); resetCarouselTimer();" aria-label="Próximo depoimento">  </button>
 </div>
 </div>
 </section>
@@ -1228,7 +1073,6 @@ COPIAR CHAVE PIX
 <h5>Transparência</h5>
 <ul>
 <li><a href="#prestacao-contas">Boletos e Notas</a></li>
-<li><a href="#depoimentos">Depoimentos</a></li>
 <li><a href="#faq">Dúvidas Frequentes</a></li>
 <li><a href="#" onclick="alert('Política de Privacidade: Seus dados nunca são compartilhados ou vendidos. Total respeito à LGPD.'); return false;">Privacidade</a></li>
 </ul>
@@ -1270,17 +1114,6 @@ DOAR AGORA
 <div class="doc-zoom-content" id="docZoomContent">
 <!-- Injected via script.js -->
 </div>
-</div>
-</div>
-
-<!-- HOME VIDEO MODAL: o arquivo só é carregado após a ação do visitante. -->
-<div class="home-video-overlay" id="homeVideoModal" onclick="closeHomeVideoOnOverlay(event)" aria-hidden="true">
-<div class="home-video-dialog" role="dialog" aria-modal="true" aria-label="Vídeo da campanha">
-<button class="modal-close-btn home-video-close" onclick="closeHomeVideo()" aria-label="Fechar vídeo">✕</button>
-<video id="homeCampaignVideo" controls playsinline preload="none" poster="imagens/hero_video_thumb.png">
-<source data-src="imagens/video-home.mp4" type="video/mp4">
-Seu navegador não suporta a reprodução deste vídeo.
-</video>
 </div>
 </div>
 
