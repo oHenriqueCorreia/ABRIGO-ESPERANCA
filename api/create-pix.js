@@ -1,12 +1,14 @@
 const { cashRequest, publicOrigin, sendJson } = require("./_tribopay");
+const MIN_DEPOSIT_CENTS = 500;
+const MAX_DEPOSIT_CENTS = 2000000;
 
 module.exports = async (request, response) => {
   if (request.method !== "POST") return sendJson(response, 405, { message: "Método não permitido." });
   const amount = Number(request.body?.amount);
   const name = String(request.body?.name || "").trim();
   const phone = String(request.body?.phone || "").replace(/\D/g, "");
-  if (!Number.isSafeInteger(amount) || amount < 100 || amount > 500000000) {
-    return sendJson(response, 422, { message: "Informe um valor entre R$ 1,00 e R$ 5.000.000,00." });
+  if (!Number.isSafeInteger(amount) || amount < MIN_DEPOSIT_CENTS || amount > MAX_DEPOSIT_CENTS) {
+    return sendJson(response, 422, { message: "Informe um valor entre R$ 5,00 e R$ 20.000,00." });
   }
   if (name.length < 2 || name.length > 120 || phone.length < 10 || phone.length > 13) {
     return sendJson(response, 422, { message: "Informe nome e telefone válidos para gerar o PIX." });
@@ -27,6 +29,9 @@ module.exports = async (request, response) => {
         payer: { name, email: payerEmail, phone: { number: phone } },
       }),
     });
+    if (!deposit.pix?.code || !deposit.pix?.imageBase64) {
+      return sendJson(response, 422, { message: "A operadora não liberou esta cobrança PIX. Tente novamente em alguns segundos." });
+    }
     return sendJson(response, 201, { id: deposit.id, status: deposit.status, amount: deposit.amount, pix: deposit.pix });
   } catch (error) {
     console.error("TriboPay create PIX failed", error.message);

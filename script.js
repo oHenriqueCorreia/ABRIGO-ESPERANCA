@@ -112,6 +112,8 @@ function closeDonationModalOnOverlay(event) {
 let selectedPixAmount = 25;
 let pixStatusTimer;
 let pixGenerationInProgress = false;
+const MIN_PIX_AMOUNT = 5;
+const MAX_PIX_AMOUNT = 20000;
 
 function selectPresetValue(val, btnElement) {
   // Highlight the selected button
@@ -156,7 +158,9 @@ async function generatePixDonation() {
   const customValueForm = document.getElementById("customPixValueForm");
   if (customValueForm.style.display !== "none") {
     const amount = Number(String(document.getElementById("customPixAmount").value).replace(",", "."));
-    if (!Number.isFinite(amount) || amount < 1) return setPixError("Informe um valor de doação a partir de R$ 1,00.");
+    if (!Number.isFinite(amount) || amount < MIN_PIX_AMOUNT || amount > MAX_PIX_AMOUNT) {
+      return setPixError("Informe um valor entre R$ 5,00 e R$ 20.000,00.");
+    }
     selectedPixAmount = amount;
     document.getElementById("selectedValueLabel").textContent = "R$ " + amount.toFixed(2).replace(".", ",");
   }
