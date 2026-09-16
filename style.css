@@ -367,6 +367,10 @@ a {
   background: #111;
   overflow: hidden;
   cursor: pointer;
+  border: 0;
+  padding: 0;
+  display: block;
+  text-align: inherit;
 }
 
 .hero-media-img {
@@ -393,6 +397,25 @@ a {
 .hero-media-wrapper:hover .hero-play-overlay {
   background: rgba(0,0,0,0.2);
 }
+
+.home-video-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  background: rgba(2, 6, 23, .86);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .2s ease, visibility .2s ease;
+}
+.home-video-overlay.active { opacity: 1; visibility: visible; }
+.home-video-dialog { position: relative; width: min(100%, 960px); background: #000; border-radius: 14px; overflow: hidden; box-shadow: 0 24px 70px rgba(0, 0, 0, .45); }
+.home-video-dialog video { display: block; width: 100%; max-height: calc(100vh - 2.5rem); background: #000; }
+.home-video-close { position: absolute; top: .7rem; right: .7rem; z-index: 1; background: rgba(15, 23, 42, .85); color: #fff; }
 
 .play-badge {
   display: inline-flex;

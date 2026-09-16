@@ -121,7 +121,7 @@ Ajude nosso abrigo a continuar alimentando e tratando esses animais resgatados d
 <!-- Centered Main Hero Card -->
 <div class="hero-card-centered">
 <!-- Media / Video Container -->
-<div class="hero-media-wrapper" onclick="playShelterVideo()">
+<button class="hero-media-wrapper" type="button" onclick="playShelterVideo()" aria-label="Assistir ao vídeo da campanha">
 <img class="hero-media-img" src="imagens/hero_video_thumb.png" alt="Resgate e cuidado de cães no abrigo" onerror="this.src='https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800&auto=format&fit=crop&q=80'">
 <div class="hero-play-overlay">
 <span class="play-badge">
@@ -129,6 +129,7 @@ Ajude nosso abrigo a continuar alimentando e tratando esses animais resgatados d
 ASSISTA AO VÍDEO
 </span>
 </div>
+</button>
 </div>
 
 <!-- Progress & Action CTA Area -->
@@ -1269,6 +1270,17 @@ DOAR AGORA
 <div class="doc-zoom-content" id="docZoomContent">
 <!-- Injected via script.js -->
 </div>
+</div>
+</div>
+
+<!-- HOME VIDEO MODAL: o arquivo só é carregado após a ação do visitante. -->
+<div class="home-video-overlay" id="homeVideoModal" onclick="closeHomeVideoOnOverlay(event)" aria-hidden="true">
+<div class="home-video-dialog" role="dialog" aria-modal="true" aria-label="Vídeo da campanha">
+<button class="modal-close-btn home-video-close" onclick="closeHomeVideo()" aria-label="Fechar vídeo">✕</button>
+<video id="homeCampaignVideo" controls playsinline preload="none" poster="imagens/hero_video_thumb.png">
+<source data-src="imagens/video-home.mp4" type="video/mp4">
+Seu navegador não suporta a reprodução deste vídeo.
+</video>
 </div>
 </div>
 

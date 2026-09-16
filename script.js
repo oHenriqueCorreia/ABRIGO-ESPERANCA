@@ -301,8 +301,32 @@ function shareCampaign() {
 
 // --- Video Demo Trigger ---
 function playShelterVideo() {
-  openDonationModal();
-  showToast("Assista e apoie a campanha salvando vidas!");
+  const modal = document.getElementById("homeVideoModal");
+  const video = document.getElementById("homeCampaignVideo");
+  const source = video?.querySelector("source");
+  if (!modal || !video || !source) return;
+  if (!source.src) {
+    source.src = source.dataset.src;
+    video.load();
+  }
+  modal.classList.add("active");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+  video.play().catch(() => {});
+}
+
+function closeHomeVideo() {
+  const modal = document.getElementById("homeVideoModal");
+  const video = document.getElementById("homeCampaignVideo");
+  if (!modal || !video) return;
+  video.pause();
+  modal.classList.remove("active");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+}
+
+function closeHomeVideoOnOverlay(event) {
+  if (event.target.id === "homeVideoModal") closeHomeVideo();
 }
 
 // --- Document Viewer Tabs ---
