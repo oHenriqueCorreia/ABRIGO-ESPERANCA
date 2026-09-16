@@ -2312,6 +2312,15 @@ a {
   gap: 8px;
   margin-bottom: 1.25rem;
 }
+.btn-custom-pix {
+  display: block;
+  width: min(100%, 360px);
+  min-height: 48px;
+  margin: -0.45rem auto 1.25rem;
+  padding: .65rem 1rem;
+  font-size: .78rem;
+  letter-spacing: .02em;
+}
 
 .btn-preset-val {
   background: #f8fafc;

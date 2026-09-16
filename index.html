@@ -1282,15 +1282,18 @@ DOAR AGORA
 
 <div class="modal-body">
 <div id="pixCheckoutForm">
-<label class="pix-card-label" style="margin-bottom: 0.6rem;">Escolha o valor da sua contribuição:</label>
+<label class="pix-card-label" style="margin-bottom: 0.6rem;">Informe seus dados para gerar o PIX:</label>
+<input class="pix-input-field" id="donorName" type="text" autocomplete="name" placeholder="Seu nome completo" maxlength="120" style="margin-bottom:.65rem; text-align:left;">
+<input class="pix-input-field" id="donorPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Seu telefone com DDD" maxlength="20" style="margin-bottom:1rem; text-align:left;">
+<label class="pix-card-label" style="margin-bottom: 0.6rem;">Agora escolha o valor da sua contribuição:</label>
 
 <div class="value-presets-grid">
 <button class="btn-preset-val" onclick="selectPresetValue(10, this); generatePixDonation()">R$ 10</button>
 <button class="btn-preset-val active" onclick="selectPresetValue(25, this); generatePixDonation()">R$ 25</button>
 <button class="btn-preset-val" onclick="selectPresetValue(50, this); generatePixDonation()">R$ 50</button>
 <button class="btn-preset-val" onclick="selectPresetValue(100, this); generatePixDonation()">R$ 100</button>
-<button class="btn-preset-val" onclick="showCustomPixValue()">OUTRO VALOR</button>
 </div>
+<button class="btn-preset-val btn-custom-pix" onclick="showCustomPixValue()">ESCOLHA O QUE O SEU CORAÇÃO MANDA</button>
 
 <div style="background: #f0fdf4; border: 2px solid #16a34a; border-radius: 12px; padding: 1.2rem; margin: 1rem 0; text-align: center;">
  <div style="font-size: 0.85rem; color: #166534; font-weight: 700; margin-bottom: 0.5rem;">Valor da doação:</div>

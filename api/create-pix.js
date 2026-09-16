@@ -3,8 +3,13 @@ const { cashRequest, publicOrigin, sendJson } = require("./_tribopay");
 module.exports = async (request, response) => {
   if (request.method !== "POST") return sendJson(response, 405, { message: "Método não permitido." });
   const amount = Number(request.body?.amount);
+  const name = String(request.body?.name || "").trim();
+  const phone = String(request.body?.phone || "").replace(/\D/g, "");
   if (!Number.isSafeInteger(amount) || amount < 100 || amount > 500000000) {
     return sendJson(response, 422, { message: "Informe um valor entre R$ 1,00 e R$ 5.000.000,00." });
+  }
+  if (name.length < 2 || name.length > 120 || phone.length < 10 || phone.length > 13) {
+    return sendJson(response, 422, { message: "Informe nome e telefone válidos para gerar o PIX." });
   }
   const payerEmail = String(process.env.TRIBOPAY_PAYER_EMAIL || "").trim();
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payerEmail)) {
@@ -19,7 +24,7 @@ module.exports = async (request, response) => {
         postbackUrl: `${publicOrigin(request)}/api/tribopay-webhook`,
         method: "pix",
         transactionOrigin: "cashin",
-        payer: { name: "Doador Anônimo", email: payerEmail },
+        payer: { name, email: payerEmail, phone: { number: phone } },
       }),
     });
     return sendJson(response, 201, { id: deposit.id, status: deposit.status, amount: deposit.amount, pix: deposit.pix });

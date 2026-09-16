@@ -162,7 +162,12 @@ function setPixError(message) {
 }
 
 async function generatePixDonation() {
+  const name = document.getElementById("donorName")?.value.trim();
+  const phone = document.getElementById("donorPhone")?.value.replace(/\D/g, "");
   const button = document.getElementById("generatePixBtn");
+  if (name.length < 2 || phone.length < 10 || phone.length > 13) {
+    return setPixError("Informe seu nome completo e telefone com DDD para gerar o PIX.");
+  }
 
   setPixError("");
   button.disabled = true;
@@ -171,7 +176,7 @@ async function generatePixDonation() {
     const response = await fetch("/api/create-pix", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ amount: Math.round(selectedPixAmount * 100) }),
+      body: JSON.stringify({ amount: Math.round(selectedPixAmount * 100), name, phone }),
     });
     const data = await response.json();
     if (!response.ok || !data.pix?.code) throw new Error(data.message || "Não foi possível gerar o PIX.");
