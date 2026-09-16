@@ -11,10 +11,9 @@ module.exports = async (request, response) => {
   if (name.length < 2 || name.length > 120 || phone.length < 10 || phone.length > 13) {
     return sendJson(response, 422, { message: "Informe nome e telefone válidos para gerar o PIX." });
   }
-  const payerEmail = String(process.env.TRIBOPAY_PAYER_EMAIL || "").trim();
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payerEmail)) {
-    return sendJson(response, 503, { message: "Configuração de pagamento indisponível." });
-  }
+  // A Cash API exige o campo e-mail. O checkout não coleta e-mail do doador,
+  // então usamos um identificador técnico, derivado do telefone informado.
+  const payerEmail = `pix-${phone}@ajude-quem-precisa.vercel.app`;
   try {
     const deposit = await cashRequest("/deposits/pix", {
       method: "POST",
