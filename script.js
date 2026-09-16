@@ -173,11 +173,14 @@ async function generatePixDonation() {
     selectedPixAmount = amount;
     document.getElementById("selectedValueLabel").textContent = "R$ " + amount.toFixed(2).replace(".", ",");
   }
-  const name = document.getElementById("donorName")?.value.trim();
+  const firstName = document.getElementById("donorFirstName")?.value.trim();
+  const lastName = document.getElementById("donorLastName")?.value.trim();
   const phone = document.getElementById("donorPhone")?.value.replace(/\D/g, "");
+  const email = document.getElementById("donorEmail")?.value.trim();
+  const cpf = document.getElementById("donorCpf")?.value.replace(/\D/g, "");
   const button = document.getElementById("generatePixBtn");
-  if (name.length < 2 || phone.length < 10 || phone.length > 13) {
-    return setPixError("Informe seu nome completo e telefone com DDD para gerar o PIX.");
+  if (firstName.length < 2 || lastName.length < 2 || phone.length < 10 || phone.length > 13 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || cpf.length !== 11) {
+    return setPixError("Informe nome, sobrenome, telefone, e-mail e CPF válidos para gerar o PIX.");
   }
 
   setPixError("");
@@ -188,7 +191,7 @@ async function generatePixDonation() {
     const response = await fetch("/api/create-pix", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ amount: Math.round(selectedPixAmount * 100), name, phone }),
+      body: JSON.stringify({ amount: Math.round(selectedPixAmount * 100), firstName, lastName, phone, email, cpf }),
     });
     const data = await response.json();
     if (!response.ok || !data.pix?.code) throw new Error(data.message || "Não foi possível gerar o PIX.");
