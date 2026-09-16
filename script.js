@@ -111,6 +111,7 @@ function closeDonationModalOnOverlay(event) {
 // --- Value Preset Buttons ---
 let selectedPixAmount = 25;
 let pixStatusTimer;
+let pixGenerationInProgress = false;
 
 function selectPresetValue(val, btnElement) {
   // Highlight the selected button
@@ -151,6 +152,7 @@ function setPixError(message) {
 }
 
 async function generatePixDonation() {
+  if (pixGenerationInProgress) return;
   const customValueForm = document.getElementById("customPixValueForm");
   if (customValueForm.style.display !== "none") {
     const amount = Number(String(document.getElementById("customPixAmount").value).replace(",", "."));
@@ -166,6 +168,7 @@ async function generatePixDonation() {
   }
 
   setPixError("");
+  pixGenerationInProgress = true;
   button.disabled = true;
   button.textContent = "GERANDO PIX…";
   try {
@@ -189,6 +192,7 @@ async function generatePixDonation() {
   } catch (error) {
     setPixError(error.message || "Não foi possível gerar o PIX. Tente novamente.");
   } finally {
+    pixGenerationInProgress = false;
     button.disabled = false;
     button.textContent = "GERAR PIX SEGURO";
   }
