@@ -158,7 +158,7 @@ ASSISTA AO VÍDEO
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
 CONTRIBUIR PELO PIX
 </button>
-<button class="btn-cta-red" onclick="copyPixKey()">
+<button class="btn-cta-red" onclick="openDonationModal()">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
 COPIAR CHAVE PIX
 </button>
@@ -236,9 +236,9 @@ Nossas reservas se esgotaram e os estoques de suprimentos estão no fim. <strong
 <div class="pix-white-card">
 <span class="pix-card-label">Link Pix Oficial (Copia e Cola):</span>
 <div class="pix-input-group">
-<input type="text" class="pix-input-field" value="https://link.syncpayments.com.br/AxkHLA" readonly id="pixKeyInputBanner" onclick="this.select()">
+<input type="text" class="pix-input-field" value="Escolha o valor para gerar seu PIX" readonly id="pixKeyInputBanner" onclick="openDonationModal()">
 </div>
-<button class="btn-pix-copy-green" onclick="copyPixKey('https://link.syncpayments.com.br/AxkHLA')">
+<button class="btn-pix-copy-green" onclick="openDonationModal()">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
 COPIAR CHAVE PIX
 </button>
@@ -252,19 +252,16 @@ COPIAR CHAVE PIX
 </section>
 
 <!-- SECTION: DEPOIMENTOS (VÍDEOS) -->
-<section class="content-section" id="depoimentos">
+<section class="content-section" id="depoimentos-em-video">
 <div style="max-width: 800px; margin: 0 auto; text-align: center;">
 <span class="section-tag">DEPOIMENTOS</span>
 <h2 class="section-title">Quem acompanha de perto nosso trabalho</h2>
 <p class="section-subtitle">Conheça o impacto real de cada doação</p>
 
-<div class="video-grid">
- <div class="video-wrapper" style="overflow: hidden; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); height: 450px; position: relative;">
- <iframe class="lazy-video" width="100%" height="570" data-src="https://www.youtube-nocookie.com/embed/NO56ewBwyOg?autoplay=1&loop=1&playlist=NO56ewBwyOg&controls=0&modestbranding=1&rel=0&disablekb=1&fs=0&iv_load_policy=3" frameborder="0" allow="autoplay; encrypted-media" style="position: absolute; top: -60px; left: 0;"></iframe>
- </div>
- <div class="video-wrapper" style="overflow: hidden; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); height: 450px; position: relative;">
- <iframe class="lazy-video" width="100%" height="570" data-src="https://www.youtube-nocookie.com/embed/Fde_AV9ocmw?autoplay=1&loop=1&playlist=Fde_AV9ocmw&controls=0&modestbranding=1&rel=0&disablekb=1&fs=0&iv_load_policy=3" frameborder="0" allow="autoplay; encrypted-media" style="position: absolute; top: -60px; left: 0;"></iframe>
- </div>
+<div class="testimonial-video-player" id="testimonialVideoPlayer" aria-label="Depoimentos em vídeo">
+ <div class="testimonial-video-slide active"><iframe id="testimonialVideo1" title="Depoimento em vídeo 1" data-video-id="NO56ewBwyOg" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+ <div class="testimonial-video-slide"><iframe id="testimonialVideo2" title="Depoimento em vídeo 2" data-video-id="Fde_AV9ocmw" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+ <div class="testimonial-video-progress" aria-live="polite"><span id="testimonialVideoCounter">Depoimento 1 de 2</span></div>
 </div>
 </div>
 </section>
@@ -1128,7 +1125,7 @@ Como posso doar pelo Pix?
 <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
 </button>
 <div class="faq-answer">
-É muito simples! Basta clicar no botão "COPIAR CHAVE PIX", abrir o aplicativo do seu banco, escolher a opção Pix Copia e Cola (ou Chave Pix), colar a chave e digitar qualquer valor que desejar doar. A confirmação é instantânea.
+É muito simples! Clique em "DOAR PELO PIX", escolha o valor, informe nome e e-mail e gere o QR Code. No app do banco, escaneie o código ou use o Pix Copia e Cola. A confirmação é instantânea.
 </div>
 </div>
 
@@ -1189,7 +1186,7 @@ Não feche os olhos para quem só tem a nós. Ajude agora mesmo com qualquer qua
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
 CONTRIBUIR PELO PIX
 </button>
-<button class="btn-cta-red" onclick="copyPixKey()">
+<button class="btn-cta-red" onclick="openDonationModal()">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
 COPIAR CHAVE PIX
 </button>
@@ -1284,32 +1281,33 @@ DOAR AGORA
 </div>
 
 <div class="modal-body">
+<div id="pixCheckoutForm">
 <label class="pix-card-label" style="margin-bottom: 0.6rem;">Escolha o valor da sua contribuição:</label>
 
 <div class="value-presets-grid">
-<button class="btn-preset-val" onclick="selectPresetValue(10, this)">R$ 10</button>
-<button class="btn-preset-val active" onclick="selectPresetValue(25, this)">R$ 25</button>
-<button class="btn-preset-val" onclick="selectPresetValue(50, this)">R$ 50</button>
-<button class="btn-preset-val" onclick="selectPresetValue(100, this)">R$ 100</button>
+<button class="btn-preset-val" onclick="selectPresetValue(10, this); generatePixDonation()">R$ 10</button>
+<button class="btn-preset-val active" onclick="selectPresetValue(25, this); generatePixDonation()">R$ 25</button>
+<button class="btn-preset-val" onclick="selectPresetValue(50, this); generatePixDonation()">R$ 50</button>
+<button class="btn-preset-val" onclick="selectPresetValue(100, this); generatePixDonation()">R$ 100</button>
+<button class="btn-preset-val" onclick="showCustomPixValue()">OUTRO VALOR</button>
 </div>
 
-<!-- Dynamic Pix Link per value -->
 <div style="background: #f0fdf4; border: 2px solid #16a34a; border-radius: 12px; padding: 1.2rem; margin: 1rem 0; text-align: center;">
- <div style="font-size: 0.85rem; color: #166534; font-weight: 700; margin-bottom: 0.5rem;">🔗 Link Pix para o valor selecionado:</div>
+ <div style="font-size: 0.85rem; color: #166534; font-weight: 700; margin-bottom: 0.5rem;">Valor da doação:</div>
  <div id="selectedValueLabel" style="font-size: 1.3rem; font-weight: 800; color: #15803d; margin-bottom: 0.75rem;">R$ 25,00</div>
- <div class="pix-input-group" style="margin-bottom: 0.75rem;">
- <input type="text" class="pix-input-field" id="modalPixKeyInput" value="https://link.syncpayments.com.br/iFQenP" readonly onclick="this.select()" style="text-align: center; font-size: 0.8rem;">
+ <div id="customPixValueForm" style="display:none;">
+ <label for="customPixAmount" style="display:block; text-align:left; color:#166534; font-weight:700; font-size:.85rem; margin-bottom:.4rem;">Quanto o seu coração manda?</label>
+ <input class="pix-input-field" id="customPixAmount" type="number" inputmode="decimal" min="1" step="0.01" placeholder="Ex.: 35,00" style="margin-bottom: .75rem; text-align:left;">
+ <button class="btn-pix-copy-green" id="generatePixBtn" onclick="generateCustomPixDonation()" style="width: 100%;">GERAR MEU PIX</button>
  </div>
- <button class="btn-pix-copy-green" id="modalCopyBtn" onclick="copyModalPixKey()" style="width: 100%;">
- <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
- COPIAR LINK E PAGAR
- </button>
+ <p id="pixReadyHint" style="color:#166534; font-size:.88rem; margin:0;">Escolha um valor acima para gerar seu PIX na hora.</p>
+ <p id="pixFormError" role="alert" style="display:none; color:#b91c1c; font-size:.85rem; margin:.75rem 0 0;"></p>
 </div>
 
 <ul class="modal-steps-list">
 <li>
 <span class="step-num-badge">1</span>
-<span>Clique no botão verde acima para <strong>copiar a chave Pix</strong>.</span>
+<span>Escolha o valor da doação para <strong>gerar seu QR Code PIX</strong>.</span>
 </li>
 <li>
 <span class="step-num-badge">2</span>
@@ -1317,9 +1315,16 @@ DOAR AGORA
 </li>
 <li>
 <span class="step-num-badge">3</span>
-<span>Cole a chave, confirme o valor escolhido e conclua. <strong>Muito obrigado!</strong></span>
+<span>Copie o código, confirme o valor no banco e conclua. <strong>Muito obrigado!</strong></span>
 </li>
 </ul>
+</div>
+<div id="pixPaymentPanel" style="display:none; text-align:center;">
+<p style="font-weight:800; color:#166534; margin-bottom:.75rem;">Escaneie o QR Code ou copie o código PIX</p>
+<img id="pixQrCode" alt="QR Code para pagamento PIX" style="display:none; width:220px; max-width:100%; margin:0 auto 1rem; border-radius:8px;">
+<input type="text" class="pix-input-field" id="modalPixKeyInput" readonly onclick="this.select()" style="text-align:center; font-size:.78rem; margin-bottom:.75rem;">
+<button class="btn-pix-copy-green" onclick="copyModalPixKey()" style="width:100%;">COPIAR CÓDIGO PIX</button>
+<p id="pixPaymentStatus" aria-live="polite" style="color:#166534; font-weight:700; margin:1rem 0 0;">Aguardando a confirmação do pagamento…</p>
 </div>
 </div>
 </div>
@@ -1372,5 +1377,3 @@ ABRIR MEU BANCO E CONCLUIR
 <script src="script.js"></script>
 </body>
 </html>
-
-

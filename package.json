@@ -1,4 +1,7 @@
 {
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
     "jimp": "^1.6.1",
     "qrcode-reader": "^1.0.4",

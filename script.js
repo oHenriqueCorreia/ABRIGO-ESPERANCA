@@ -5,7 +5,6 @@
 
 // Global Configuration
 const CONFIG = {
-  pixKey: "https://link.syncpayments.com.br/AxkHLA",
   beneficiaryName: "ASSOCIAÇÃO DE RESGATE E PROTEÇÃO ANIMAL",
   campaignGoal: 150000,
   currentRaised: 48910
@@ -13,7 +12,11 @@ const CONFIG = {
 
 // --- Copy Pix Functionality ---
 function copyPixKey(customKey) {
-  const keyToCopy = customKey || CONFIG.pixKey;
+  if (!customKey) {
+    openDonationModal();
+    return;
+  }
+  const keyToCopy = customKey;
   
   if (navigator.clipboard && window.isSecureContext) {
     navigator.clipboard.writeText(keyToCopy).then(() => {
@@ -47,13 +50,6 @@ function fallbackCopyText(text) {
 
 function onPixCopiedSuccess() {
   showToast("Chave Pix copiada com sucesso! Cole no app do seu banco.");
-  
-  // Close basic donation modal if open and show urgent confirmation modal
-  closeDonationModal();
-  
-  setTimeout(() => {
-    openPixCopiedModal();
-  }, 400);
 }
 
 // --- Toast Notification ---
@@ -79,6 +75,18 @@ function openDonationModal(presetAmount) {
   
   modal.classList.add("active");
   document.body.style.overflow = "hidden";
+  stopPixStatusPolling();
+  document.getElementById("pixCheckoutForm").style.display = "block";
+  document.getElementById("pixPaymentPanel").style.display = "none";
+  const qr = document.getElementById("pixQrCode");
+  qr.style.display = "none";
+  qr.removeAttribute("src");
+  const paymentStatus = document.getElementById("pixPaymentStatus");
+  paymentStatus.textContent = "Aguardando a confirmação do pagamento…";
+  paymentStatus.style.color = "#166534";
+  document.getElementById("customPixValueForm").style.display = "none";
+  document.getElementById("pixReadyHint").style.display = "block";
+  setPixError("");
   
   if (presetAmount) {
     selectPresetValue(presetAmount);
@@ -91,6 +99,7 @@ function closeDonationModal() {
   
   modal.classList.remove("active");
   document.body.style.overflow = "";
+  stopPixStatusPolling();
 }
 
 function closeDonationModalOnOverlay(event) {
@@ -100,12 +109,8 @@ function closeDonationModalOnOverlay(event) {
 }
 
 // --- Value Preset Buttons ---
-const PIX_LINKS = {
-  10:  'https://link.syncpayments.com.br/VGI5mD',
-  25:  'https://link.syncpayments.com.br/iFQenP',
-  50:  'https://link.syncpayments.com.br/fjbcho',
-  100: 'https://link.syncpayments.com.br/n7PBsw'
-};
+let selectedPixAmount = 25;
+let pixStatusTimer;
 
 function selectPresetValue(val, btnElement) {
   // Highlight the selected button
@@ -113,25 +118,108 @@ function selectPresetValue(val, btnElement) {
   if (btnElement) {
     btnElement.classList.add("active");
   }
+  document.getElementById("customPixValueForm").style.display = "none";
+  document.getElementById("pixReadyHint").style.display = "block";
 
-  // Update the pix link and label
-  const link = PIX_LINKS[val] || PIX_LINKS[25];
-  const inputEl = document.getElementById("modalPixKeyInput");
+  selectedPixAmount = Number(val) || 25;
   const labelEl = document.getElementById("selectedValueLabel");
-  if (inputEl) {
-    inputEl.value = link;
-  }
   if (labelEl) {
-    labelEl.textContent = "R$ " + val + ",00";
+    labelEl.textContent = "R$ " + selectedPixAmount.toFixed(2).replace(".", ",");
   }
 
-  showToast("Valor de R$ " + val + ",00 selecionado!");
+  showToast("Valor de R$ " + selectedPixAmount.toFixed(2).replace(".", ",") + " selecionado!");
+}
+
+function showCustomPixValue() {
+  document.querySelectorAll(".btn-preset-val").forEach(btn => btn.classList.remove("active"));
+  document.getElementById("customPixValueForm").style.display = "block";
+  document.getElementById("pixReadyHint").style.display = "none";
+  document.getElementById("customPixAmount").focus();
+}
+
+function generateCustomPixDonation() {
+  const value = document.getElementById("customPixAmount").value;
+  const amount = Number(String(value).replace(",", "."));
+  if (!Number.isFinite(amount) || amount < 1) {
+    return setPixError("Informe um valor de doação a partir de R$ 1,00.");
+  }
+  selectedPixAmount = amount;
+  document.getElementById("selectedValueLabel").textContent = "R$ " + amount.toFixed(2).replace(".", ",");
+  generatePixDonation();
 }
 
 function copyModalPixKey() {
   const inputEl = document.getElementById("modalPixKeyInput");
   if (!inputEl) return;
   copyPixKey(inputEl.value);
+}
+
+function setPixError(message) {
+  const error = document.getElementById("pixFormError");
+  if (!error) return;
+  error.textContent = message || "";
+  error.style.display = message ? "block" : "none";
+}
+
+async function generatePixDonation() {
+  const button = document.getElementById("generatePixBtn");
+
+  setPixError("");
+  button.disabled = true;
+  button.textContent = "GERANDO PIX…";
+  try {
+    const response = await fetch("/api/create-pix", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ amount: Math.round(selectedPixAmount * 100) }),
+    });
+    const data = await response.json();
+    if (!response.ok || !data.pix?.code) throw new Error(data.message || "Não foi possível gerar o PIX.");
+
+    document.getElementById("modalPixKeyInput").value = data.pix.code;
+    const qr = document.getElementById("pixQrCode");
+    if (data.pix.imageBase64) {
+      qr.src = data.pix.imageBase64.startsWith("data:") ? data.pix.imageBase64 : `data:image/png;base64,${data.pix.imageBase64}`;
+      qr.style.display = "block";
+    }
+    document.getElementById("pixCheckoutForm").style.display = "none";
+    document.getElementById("pixPaymentPanel").style.display = "block";
+    startPixStatusPolling(data.id);
+  } catch (error) {
+    setPixError(error.message || "Não foi possível gerar o PIX. Tente novamente.");
+  } finally {
+    button.disabled = false;
+    button.textContent = "GERAR PIX SEGURO";
+  }
+}
+
+function stopPixStatusPolling() {
+  clearInterval(pixStatusTimer);
+  pixStatusTimer = undefined;
+}
+
+function startPixStatusPolling(id) {
+  stopPixStatusPolling();
+  const status = document.getElementById("pixPaymentStatus");
+  const check = async () => {
+    try {
+      const response = await fetch(`/api/pix-status?id=${encodeURIComponent(id)}`);
+      const data = await response.json();
+      if (data.status === "paid") {
+        stopPixStatusPolling();
+        status.textContent = "Pagamento confirmado! Muito obrigado por ajudar. 💚";
+        status.style.color = "#15803d";
+      } else if (["expired", "cancelled", "refunded"].includes(data.status)) {
+        stopPixStatusPolling();
+        status.textContent = "Esta cobrança não está mais disponível. Gere um novo PIX.";
+        status.style.color = "#b91c1c";
+      }
+    } catch (_) {
+      // A confirmação continua sendo checada na próxima tentativa.
+    }
+  };
+  check();
+  pixStatusTimer = setInterval(check, 5000);
 }
 
 // --- Post-Copy Urgent Modal ---
@@ -349,6 +437,60 @@ function resetCarouselTimer() {
   startCarouselAutoPlay();
 }
 
+// --- Depoimentos em vídeo: reproduz um por vez e troca ao terminar ---
+let testimonialVideoPlayers = [];
+let activeTestimonialVideo = 0;
+let testimonialVideosReady = false;
+
+function activateTestimonialVideo(index, autoplay = true) {
+  if (!testimonialVideoPlayers.length) return;
+  activeTestimonialVideo = index % testimonialVideoPlayers.length;
+  document.querySelectorAll(".testimonial-video-slide").forEach((slide, position) => {
+    slide.classList.toggle("active", position === activeTestimonialVideo);
+  });
+  const counter = document.getElementById("testimonialVideoCounter");
+  if (counter) counter.textContent = `Depoimento ${activeTestimonialVideo + 1} de ${testimonialVideoPlayers.length}`;
+  testimonialVideoPlayers.forEach((player, position) => {
+    if (position === activeTestimonialVideo) {
+      if (autoplay) player.playVideo();
+    } else {
+      player.pauseVideo();
+    }
+  });
+}
+
+function initializeTestimonialVideos() {
+  if (testimonialVideosReady || !window.YT?.Player) return;
+  const frames = [...document.querySelectorAll(".testimonial-video-slide iframe")];
+  if (!frames.length) return;
+  testimonialVideosReady = true;
+  testimonialVideoPlayers = frames.map((frame, index) => new window.YT.Player(frame.id, {
+    host: "https://www.youtube-nocookie.com",
+    videoId: frame.dataset.videoId,
+    playerVars: { autoplay: index === 0 ? 1 : 0, controls: 1, modestbranding: 1, rel: 0, playsinline: 1 },
+    events: {
+      onReady: (event) => {
+        if (index === 0) event.target.playVideo();
+      },
+      onStateChange: (event) => {
+        if (event.data === window.YT.PlayerState.ENDED && index === activeTestimonialVideo) {
+          activateTestimonialVideo(index + 1);
+        }
+      },
+    },
+  }));
+}
+
+function loadTestimonialVideoAPI() {
+  if (document.getElementById("youtube-iframe-api")) return;
+  const api = document.createElement("script");
+  api.id = "youtube-iframe-api";
+  api.src = "https://www.youtube.com/iframe_api";
+  document.head.appendChild(api);
+}
+
+window.onYouTubeIframeAPIReady = initializeTestimonialVideos;
+
 // --- Social Proof Random Donors Simulation ---
 const DONOR_PROOFS = [
   { name: "Mariana Silva", city: "São Paulo", value: "R$ 50", time: "há 2 min" },
@@ -404,6 +546,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Init Carousel
   updateCarouselUI();
   startCarouselAutoPlay();
+  loadTestimonialVideoAPI();
 
   // Pause on hover
   const carouselContainer = document.getElementById("testimonialsContainer");
